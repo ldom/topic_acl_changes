@@ -2,28 +2,10 @@ import argparse
 
 from confluent_kafka.admin import AdminClient
 
+from acl_loader import load_acls_from_cluster
 from cli_utils import read_json_input
 from input import load_input
-
-
-UID_TOPIC_NAME = "uids"
-READ_TIMEOUT = 2.0
-
-"""
-example input JSON
-{
-    'uid': 17,
-    'environment': 'RND',
-    'topics_to_recreate': [
-        'aaa',
-        'bbb'
-    ]
-}
-"""
-
-JSON_INPUT_UID = "uid"
-JSON_INPUT_ENV = "environment"
-JSON_INPUT_RECREATE_TOPICS = "topics_to_recreate"
+from topic_loader import load_topics_from_cluster
 
 
 def handle_arguments():
@@ -44,18 +26,17 @@ def main():
     ####################################################################################################
     # TODO update options
     ####################################################################################################
-    bootstrap_servers = '192.168.0.129:9092'
-    admin_options = {'bootstrap.servers': bootstrap_servers}
-    consumer_options = {
-        'bootstrap.servers': bootstrap_servers,
-        'group.id': 'test_safe_delete'
-    }
-    producer_options = {'bootstrap.servers': bootstrap_servers}
+    admin_options = {'bootstrap.servers': '192.168.0.129:9092'}
     ####################################################################################################
 
     # read JSON input data
     input_data = read_json_input(args.input)
-    input_objects = load_input(input_data)
+    new_topics, new_acls = load_input(input_data)
+
+    admin_client = AdminClient(admin_options)
+
+    existing_topics = load_topics_from_cluster(admin_client)
+    existing_acls = load_acls_from_cluster(admin_client)
 
     success = True
 

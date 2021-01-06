@@ -1,12 +1,14 @@
+from typing import List
+
 from acl import ACL
 from constants import Consts
 
 
-def load_acl_from_cluster(admin_client):
+def load_acls_from_cluster(admin_client) -> List[ACL]:
     pass
 
 
-def load_acl_from_json(json_object):
+def load_acl_from_json(json_object) -> ACL:
     return ACL(
         name=json_object.get(Consts.A_NAME),
         principal=json_object.get(Consts.A_PRINCIPAL),
