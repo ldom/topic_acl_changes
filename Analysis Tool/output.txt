@@ -1,0 +1,639 @@
+Run Timestamp: 11/24/2020, 1:23:59 PM
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dsp_prod -- Comparison / Pre-check <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+
+Topics to be Recreated (0):
+
+===========================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics Added (0):
+
+=================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics Removed (0):
+
+===================
+
+
+
+    --- none ---
+
+
+
+
+
+New Repartition Topics Needing a DELETE ACL (0):
+
+================================================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics with Partition Change (0):
+
+=================================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics with Max Bytes Change (0):
+
+=================================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics with Retention Change (0):
+
+=================================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics with Finite Retention After (64):
+
+========================================
+
+
+
+    INGESTED.AccountBalanceChange.FIS (1209600000)
+
+    INGESTED.AccountNotes.FIS (1209600000)
+
+    INGESTED.AccountRoles.FIS (1209600000)
+
+    INGESTED.CasaOpenAccount.FIS (1209600000)
+
+    INGESTED.ChannelPrefByPrefId.OLY (1209600000)
+
+    INGESTED.DispositionTransaction.COR (1209600000)
+
+    INGESTED.EDSAccount.MDM (1209600000)
+
+    INGESTED.EDSParty.MDM (1209600000)
+
+    INGESTED.EventPrefByPrefId.OLY (1209600000)
+
+    INGESTED.FundHold.FIS (1209600000)
+
+    INGESTED.JournalArea.COS (1209600000)
+
+    INGESTED.MDMAddress.MDM (1209600000)
+
+    INGESTED.MDMCntrctPartyAddress.MDM (1209600000)
+
+    INGESTED.MDMCntrctPartyRltnp.MDM (1209600000)
+
+    INGESTED.MDMCntrctPrdctRltnp.MDM (1209600000)
+
+    INGESTED.MDMContactMethod.MDM (1209600000)
+
+    INGESTED.MDMContract.MDM (1209600000)
+
+    INGESTED.MDMDevice.MDM (1209600000)
+
+    INGESTED.MDMParty.MDM (1209600000)
+
+    INGESTED.MDMPartyKeys.MDM (1209600000)
+
+    INGESTED.MDMPartyName.MDM (1209600000)
+
+    INGESTED.MasterRecord.COR (1209600000)
+
+    INGESTED.MasterRecord.COS (1209600000)
+
+    INGESTED.MonetaryTransaction.FIS (1209600000)
+
+    INGESTED.MonetaryTransactionException.FIS (1209600000)
+
+    INGESTED.MonetaryTxnRelationship.FIS (1209600000)
+
+    INGESTED.PendingDebits.COS (1209600000)
+
+    INGESTED.PendingDeposits.COS (1209600000)
+
+    INGESTED.PostedTransaction.COR (1209600000)
+
+    INGESTED.PrefLinkByChannelPrefId.OLY (1209600000)
+
+    INGESTED.PrefLinkByEventPrefId.OLY (1209600000)
+
+    INGESTED.PrefLinkByPrefId.OLY (1209600000)
+
+    INGESTED.Trancode.FIS (1209600000)
+
+    RAW.CIF.LOAD.CIFALK (1209600000)
+
+    RAW.CIF.LOAD.CIFPERM (1209600000)
+
+    RAW.CIFKeys.CIF (1209600000)
+
+    RAW.COR.LOAD.DISPTRANS (1209600000)
+
+    RAW.COR.LOAD.MASTER (1209600000)
+
+    RAW.COR.LOAD.POSTTRANS (1209600000)
+
+    RAW.COR.REALTIME.DISPTRANS (1209600000)
+
+    RAW.COX.LOAD.CONTROLFILE (1209600000)
+
+    RAW.Intraday.COS (1209600000)
+
+    RAW.JournalRecord.COS (1209600000)
+
+    RAW.MDM.LOAD.MDMADDR (1209600000)
+
+    RAW.MDM.LOAD.MDMCNTCTMETHOD (1209600000)
+
+    RAW.MDM.LOAD.MDMCNTRCTPARTYRLTNP (1209600000)
+
+    RAW.MDM.LOAD.MDMCNTRCTPRDCTRLTNP (1209600000)
+
+    RAW.MDM.LOAD.MDMCNTRCTPRTYADDRESS (1209600000)
+
+    RAW.MDM.LOAD.MDMCONTRACT (1209600000)
+
+    RAW.MDM.LOAD.MDMPARTY (1209600000)
+
+    RAW.MDM.LOAD.MDMPARTYKEYS (1209600000)
+
+    RAW.MDM.LOAD.MDMPARTYNAME (1209600000)
+
+    RAW.MDM.REALTIME.DATA (1209600000)
+
+    RAW.MPX.LOAD.STATEMENTCYCLE (1209600000)
+
+    RAW.MPX.LOAD.TRANCODE (1209600000)
+
+    RAW.MasterRecord.COS (1209600000)
+
+    RAW.OLY.LOAD.CHANNELPREF (1209600000)
+
+    RAW.OLY.LOAD.EVENTPREF (1209600000)
+
+   RAW.OLY.LOAD.PREFLINK (1209600000)
+
+    RAW.OLY.LOAD.PREFMASTER (1209600000)
+
+    RAW_OLY_CHANNEL_PREF (1209600000)
+
+    RAW_OLY_EVENT_PREF (1209600000)
+
+    RAW_OLY_PREF_LINK (1209600000)
+
+    RAW_OLY_PREF_MASTER (1209600000)
+
+
+
+
+
+ACLs Added (0):
+
+===============
+
+
+
+    --- none ---
+
+
+
+
+
+ACLs Removed (0):
+
+=================
+
+
+
+    --- none ---
+
+
+
+
+
+ACLs Added to Existing Topics (0):
+
+==================================
+
+
+
+    --- none ---
+
+
+
+
+
+ACLs Removed from Existing Topics (0):
+
+======================================
+
+
+
+    --- none ---
+
+
+
+
+
+ACLs Added to Added Topics (0):
+
+===============================
+
+
+
+    --- none ---
+
+
+
+
+
+ACLs Before Missing a Specific Topic (1):
+
+=========================================
+
+
+
+    RAW -- dsp-connect01 -- PREFIXED -- WRITE
+
+
+
+
+
+ACLs After Missing a Specific Topic (1):
+
+========================================
+
+
+
+    RAW -- dsp-connect01 -- PREFIXED -- WRITE
+
+
+
+
+
+Topics No Access Before (0):
+
+============================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics No Access After (0):
+
+===========================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics Read-Only Before (0):
+
+============================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics Read-Only After (0):
+
+===========================
+
+
+
+    --- none ---
+
+
+
+
+
+Topics Write-Only Before (15):
+
+==============================
+
+
+
+    BIAN.Account.EDS
+
+    BIAN.Correspondence.EventPublication
+
+    BIAN.CustomerAccessEntitlement.CustomerAccessProfile
+
+    BIAN.CustomerReferenceDataManagement.EDS
+
+    BIAN.DocumentServices.DocumentManagement
+
+    BIAN.ServicingOrder.ScheduleInstruction
+
+    CUSTOM.Account.AOPAccount
+
+    CUSTOM.CustomerReferenceDataManagement.AOPParty
+
+    CUSTOM.PaymentException
+
+    INGESTED.AccountNotes.FIS
+
+    INGESTED.AccountRoles.FIS
+
+    INGESTED.MDMCntrctPartyAddress.MDM
+
+    INGESTED.MDMContract.MDM
+
+    INTERNAL.Error.Connect
+
+    INTERNAL.Error.DSP
+
+
+
+
+
+Topics Write-Only After (15):
+
+=============================
+
+
+
+    BIAN.Account.EDS
+
+    BIAN.Correspondence.EventPublication
+
+    BIAN.CustomerAccessEntitlement.CustomerAccessProfile
+
+    BIAN.CustomerReferenceDataManagement.EDS
+
+    BIAN.DocumentServices.DocumentManagement
+
+    BIAN.ServicingOrder.ScheduleInstruction
+
+    CUSTOM.Account.AOPAccount
+
+    CUSTOM.CustomerReferenceDataManagement.AOPParty
+
+    CUSTOM.PaymentException
+
+    INGESTED.AccountNotes.FIS
+
+    INGESTED.AccountRoles.FIS
+
+    INGESTED.MDMCntrctPartyAddress.MDM
+
+    INGESTED.MDMContract.MDM
+
+    INTERNAL.Error.Connect
+
+    INTERNAL.Error.DSP
+
+
+
+
+
+Principals Added (0):
+
+=====================
+
+
+
+    --- none ---
+
+
+
+
+
+Principals Removed (2):
+
+=======================
+
+
+
+    DMG-prod-kfkusr001 -- DMG
+
+    xqDMGkfkusr1 -- DMG
+
+
+
+
+
+Principals After Using Old Style CN (1):
+
+========================================
+
+
+
+    CMT-prod-kfkusr001 -- CMT
+
+
+
+
+
+Principals After Using Old Style UPN (1):
+
+=========================================
+
+
+
+    xqCMTkfkusr1 -- CMT
+
+
+
+
+
+Principals After (68):
+
+======================
+
+
+
+    CMT-prod-kfkusr001 -- CMT
+
+    dsp-connect01 -- NO MNEMONIC
+
+    xqCMTkfkusr1 -- CMT
+
+    xqaopkfkusr001 -- AOP
+
+    xqccpkfkusr001 -- CCP
+
+    xqdmgkfkusr001 -- DMG
+
+    xqdspkfkusr001 -- DSP
+
+    xqdspkfkusr002 -- DSP
+
+    xqdspkfkusr003 -- DSP
+
+    xqdspkfkusr004 -- DSP
+
+    xqdspkfkusr005 -- DSP
+
+    xqdspkfkusr006 -- DSP
+
+    xqdspkfkusr007 -- DSP
+
+    xqdspkfkusr008 -- DSP
+
+    xqdspkfkusr009 -- DSP
+
+    xqdspkfkusr010 -- DSP
+
+    xqdspkfkusr011 -- DSP
+
+    xqdspkfkusr012 -- DSP
+
+    xqdspkfkusr013 -- DSP
+
+    xqdspkfkusr014 -- DSP
+
+    xqdspkfkusr015 -- DSP
+
+    xqdspkfkusr016 -- DSP
+
+    xqdspkfkusr017 -- DSP
+
+    xqdspkfkusr018 -- DSP
+
+    xqdspkfkusr019 -- DSP
+
+    xqdspkfkusr020 -- DSP
+
+    xqdspkfkusr021 -- DSP
+
+    xqdspkfkusr022 -- DSP
+
+    xqdspkfkusr023 -- DSP
+
+    xqdspkfkusr024 -- DSP
+
+    xqdspkfkusr025 -- DSP
+
+    xqdspkfkusr026 -- DSP
+
+    xqdspkfkusr027 -- DSP
+
+    xqdspkfkusr028 -- DSP
+
+    xqdspkfkusr029 -- DSP
+
+    xqdspkfkusr030 -- DSP
+
+    xqdspkfkusr031 -- DSP
+
+    xqdspkfkusr032 -- DSP
+
+    xqdspkfkusr033 -- DSP
+
+    xqdspkfkusr034 -- DSP
+
+    xqdspkfkusr035 -- DSP
+
+    xqdspkfkusr036 -- DSP
+
+    xqdspkfkusr037 -- DSP
+
+    xqdspkfkusr038 -- DSP
+
+    xqdspkfkusr039 -- DSP
+
+    xqdspkfkusr040 -- DSP
+
+    xqdspkfkusr041 -- DSP
+
+    xqdspkfkusr042 -- DSP
+
+    xqdspkfkusr043 -- DSP
+
+    xqdspkfkusr044 -- DSP
+
+    xqdspkfkusr045 -- DSP
+
+    xqdspkfkusr046 -- DSP
+
+    xqdspkfkusr047 -- DSP
+
+    xqdspkfkusr048 -- DSP
+
+    xqdspkfkusr049 -- DSP
+
+    xqdspkfkusr050 -- DSP
+
+    xqdspkfkusr051 -- DSP
+
+    xqdspkfkusr052 -- DSP
+
+    xqdspkfkusr053 -- DSP
+
+    xqdspkfkusr054 -- DSP
+
+    xqdspkfkusr055 -- DSP
+
+    xqdspkfkusr056 -- DSP
+
+    xqedckfkusr001 -- EDC
+
+    xqlcxkfkusr001 -- LCX
+
+    xqolykfkusr001 -- OLY
+
+    xqppokfkusr001 -- PPO
+
+    xqsfpkfkusr001 -- SFP
+
+    xqwcikfkusr002 -- WCI
+
+ 
