@@ -1,10 +1,10 @@
-from typing import List
+from typing import Dict
 
 from acl import ACL
 from constants import Consts
 
 
-def load_acls_from_cluster(admin_client) -> List[ACL]:
+def load_acls_from_cluster(admin_client) -> Dict[str, ACL]:
     pass
 
 

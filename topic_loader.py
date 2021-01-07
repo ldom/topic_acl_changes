@@ -1,7 +1,7 @@
 from collections import namedtuple
 from distutils.util import strtobool
 import time
-from typing import List, Optional
+from typing import Dict, Optional
 
 from confluent_kafka.admin import ConfigResource, RESOURCE_TOPIC
 from confluent_kafka import KafkaException
@@ -48,20 +48,20 @@ def gather_topic_info(admin_client, topic_name) -> Optional[TopicInfo]:  # retur
 
 
 
-def load_topics_from_cluster(admin_client) -> List[Topic]:
-    topics = []
+def load_topics_from_cluster(admin_client) -> Dict[str, Topic]:
+    topics = {}
     all_topics = admin_client.list_topics()
     for topic_name, topic_data in all_topics.topics.items():
         nb_partitions = len(topic_data.partitions)
 
         topic_info = gather_topic_info(admin_client, topic_name)
 
-        topics.append(Topic(
+        topics[topic_name] = Topic(
             name=topic_name,
             nb_partitions=nb_partitions,
             placement="",
             config_properties=topic_info.full_config,
-        ))
+        )
     return topics
 
 
