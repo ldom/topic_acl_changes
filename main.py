@@ -3,7 +3,7 @@ import argparse
 from confluent_kafka.admin import AdminClient
 
 from acl_loader import load_acls_from_cluster
-from classify import classify_acls, classify_mixed, classify_topics
+from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
 from input import load_input
 from topic_loader import load_topics_from_cluster
@@ -40,8 +40,7 @@ def main():
     before_acls = load_acls_from_cluster(admin_client)
 
     topics_sets = classify_topics(before_topics, after_topics)
-    acls_sets = classify_acls(before_acls, after_acls)
-    mixed_sets = classify_mixed(before_topics, after_topics, before_acls, after_acls)
+    acls_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
 
     success = True
 

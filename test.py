@@ -8,7 +8,7 @@ from confluent_kafka import KafkaException, KafkaError
 from input import load_input
 from topic_loader import load_topics_from_cluster
 from acl_loader import load_acls_from_cluster
-from classify import classify_acls, classify_mixed, classify_topics
+from classify import classify_acls, classify_topics
 
 class TestLib(unittest.TestCase):
     admin_options = {'bootstrap.servers': '127.0.0.1:9092'}
@@ -276,7 +276,6 @@ class TestLib(unittest.TestCase):
         after_topics, after_acls = load_input(after_data)
 
         topics_sets = classify_topics(before_topics, after_topics)
-        acls_sets = classify_acls(before_acls, after_acls)
-        mixed_sets = classify_mixed(before_topics, after_topics, before_acls, after_acls)
+        mixed_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
 
         self.assertEqual(len(topics_sets), 1)

@@ -3,9 +3,6 @@ from typing import Dict, Set
 from constants import Consts, ResultSet
 
 
-# peut-être besoin d'augmenter les topics avec leurs ACLs et vice-versa
-
-
 def classify_topics(before, after) -> Dict[ResultSet, Set]:
     sets = {}
 
@@ -46,20 +43,11 @@ def classify_topics(before, after) -> Dict[ResultSet, Set]:
     return sets
 
 
-def classify_acls(before, after) -> Dict[ResultSet, Set]:
+def classify_acls(before_topics, after_topics, before_acls, after_acls) -> Dict[ResultSet, Set]:
     sets = {}
 
-    before_acls = set([x for x in before.keys()])
-    after_acls = set([x for x in after.keys()])
-
-    return sets
-
-
-def classify_mixed(before_topics, after_topics, before_acls, after_acls) -> Dict[ResultSet, Set]:
-    sets = {}
-
-    before_acls_set = set([x for x in before_acls.keys()])
-    after_acls_set = set([x for x in after_acls.keys()])
+    before_acls_set = set(before_acls.keys())
+    after_acls_set = set(after_acls.keys())
 
     before_topics_set = set(before_topics.keys())
     after_topics_set = set(after_topics.keys())
@@ -69,8 +57,8 @@ def classify_mixed(before_topics, after_topics, before_acls, after_acls) -> Dict
     sets[ResultSet.ACLS_ADDED] = after_acls_set - before_acls_set
     sets[ResultSet.ACLS_REMOVED] = before_acls_set - after_acls_set
 
-    acls_before_on_before_topics = set([k for k,v in before_acls.items() if v.name in before_topics])
-    acls_after_on_before_topics = set([k for k,v in after_acls.items() if v.name in before_topics])
+    acls_before_on_before_topics = set([k for k,v in before_acls.items() if v.name in before_topics_set])
+    acls_after_on_before_topics = set([k for k,v in after_acls.items() if v.name in before_topics_set])
 
     sets[ResultSet.ACLS_ADDED_TO_EXISTING_TOPICS] = acls_after_on_before_topics - acls_before_on_before_topics
     sets[ResultSet.ACLS_REMOVED_FROM_EXISTING_TOPICS] = acls_before_on_before_topics - acls_after_on_before_topics
@@ -78,6 +66,23 @@ def classify_mixed(before_topics, after_topics, before_acls, after_acls) -> Dict
     sets[ResultSet.ACLS_ADDED_TO_ADDED_TOPICS] = sets[ResultSet.ACLS_ADDED] \
                                                  - sets[ResultSet.ACLS_ADDED_TO_EXISTING_TOPICS]
 
-    
+    sets[ResultSet.ACLS_BEFORE_MISSING_TOPIC] = set([k for k, v in before_acls.items()
+                                                     if v.name not in before_topics_set])
+    sets[ResultSet.ACLS_AFTER_MISSING_TOPIC] = set([k for k, v in after_acls.items()
+                                                    if v.name not in after_topics_set])
 
-    return sets  # {ResultSet.TEST: set()}
+    topics_in_before_acls = set(v.name for v in before_acls.values())
+    topics_in_after_acls = set(v.name for v in after_acls.values())
+
+    sets[ResultSet.TOPICS_NO_ACCESS_BEFORE] = before_topics_set - topics_in_before_acls
+    sets[ResultSet.TOPICS_NO_ACCESS_AFTER] = after_topics_set - topics_in_after_acls
+
+    access_to_before_topics = None
+    access_to_after_topics = None
+
+    sets[ResultSet.TOPICS_RO_BEFORE] = set()
+    sets[ResultSet.TOPICS_RO_AFTER] = set()
+    sets[ResultSet.TOPICS_WO_BEFORE] = set()
+    sets[ResultSet.TOPICS_WO_AFTER] = set()
+
+    return sets
