@@ -130,6 +130,34 @@ class TestLib(unittest.TestCase):
                     "type": "TOPIC",
                     "operation": "READ",
                     "allow": true
+                },
+                {
+                    "name": "BIAN.Account",
+                    "principal": "xqdmgkfkusr001AA",
+                    "type": "TOPIC",
+                    "operation": "WRITE",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account.1",
+                    "principal": "xqdspkfkusr002BB",
+                    "type": "TOPIC",
+                    "operation": "READ",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account.2",
+                    "principal": "xqdmgkfkusr001CC",
+                    "type": "TOPIC",
+                    "operation": "WRITE",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account",
+                    "principal": "xqdspkfkusr002DD",
+                    "type": "TOPIC",
+                    "operation": "READ",
+                    "allow": true
                 }
             ]
         }
@@ -191,6 +219,48 @@ class TestLib(unittest.TestCase):
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdspkfkusr002",
+                    "type": "TOPIC",
+                    "operation": "READ",
+                    "allow": false
+                },
+                {
+                    "name": "BIAN.Account",
+                    "principal": "xqdspkfkusr002BB",
+                    "type": "TOPIC",
+                    "operation": "READ",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account",
+                    "principal": "xqdmgkfkusr001CC",
+                    "type": "TOPIC",
+                    "operation": "WRITE",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account.1",
+                    "principal": "xqdspkfkusr002DD",
+                    "type": "TOPIC",
+                    "operation": "READ",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account.1",
+                    "principal": "xqdspkfkusr002BBXX",
+                    "type": "TOPIC",
+                    "operation": "WRITE",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account.2",
+                    "principal": "xqdmgkfkusr001CCYY",
+                    "type": "TOPIC",
+                    "operation": "WRITE",
+                    "allow": true
+                },
+                {
+                    "name": "BIAN.Account",
+                    "principal": "xqdspkfkusr002DDZZ",
                     "type": "TOPIC",
                     "operation": "READ",
                     "allow": true

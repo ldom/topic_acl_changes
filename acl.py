@@ -5,3 +5,4 @@ class ACL:
         self.operation = operation
         self.type = type
         self.allow = allow
+        self.signature = f"{self.name}/{self.principal}/{self.operation}/{self.type}/{self.allow}"

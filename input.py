@@ -16,6 +16,6 @@ def load_input(json_objects_dict) -> Tuple[Dict[str, Topic], Dict[str, ACL]]:
     acls = {}
     for a in json_objects_dict.get(Consts.ACLS, []):
         acl = load_acl_from_json(a)
-        acls[acl.name] = acl
+        acls[acl.signature] = acl
 
     return topics, acls

@@ -49,10 +49,35 @@ def classify_topics(before, after) -> Dict[ResultSet, Set]:
 def classify_acls(before, after) -> Dict[ResultSet, Set]:
     sets = {}
 
-    return sets  # {ResultSet.TEST: set()}
+    before_acls = set([x for x in before.keys()])
+    after_acls = set([x for x in after.keys()])
+
+    return sets
 
 
 def classify_mixed(before_topics, after_topics, before_acls, after_acls) -> Dict[ResultSet, Set]:
     sets = {}
+
+    before_acls_set = set([x for x in before_acls.keys()])
+    after_acls_set = set([x for x in after_acls.keys()])
+
+    before_topics_set = set(before_topics.keys())
+    after_topics_set = set(after_topics.keys())
+
+    added_topics = after_topics_set - before_topics_set
+
+    sets[ResultSet.ACLS_ADDED] = after_acls_set - before_acls_set
+    sets[ResultSet.ACLS_REMOVED] = before_acls_set - after_acls_set
+
+    acls_before_on_before_topics = set([k for k,v in before_acls.items() if v.name in before_topics])
+    acls_after_on_before_topics = set([k for k,v in after_acls.items() if v.name in before_topics])
+
+    sets[ResultSet.ACLS_ADDED_TO_EXISTING_TOPICS] = acls_after_on_before_topics - acls_before_on_before_topics
+    sets[ResultSet.ACLS_REMOVED_FROM_EXISTING_TOPICS] = acls_before_on_before_topics - acls_after_on_before_topics
+
+    sets[ResultSet.ACLS_ADDED_TO_ADDED_TOPICS] = sets[ResultSet.ACLS_ADDED] \
+                                                 - sets[ResultSet.ACLS_ADDED_TO_EXISTING_TOPICS]
+
+    
 
     return sets  # {ResultSet.TEST: set()}
