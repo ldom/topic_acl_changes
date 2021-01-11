@@ -7,7 +7,7 @@ from confluent_kafka import KafkaException, KafkaError
 
 from acl import ACL
 from input import load_input
-from classify import classify_acls, classify_topics
+from classify import classify_acls, classify_topics, has_old_style_upn_principal, has_old_style_cn_principal
 from topic import Topic
 
 
@@ -280,3 +280,17 @@ class TestLib(unittest.TestCase):
         mixed_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
 
         self.assertEqual(len(topics_sets), 1)
+
+    def test_principal_style(self):
+        old_style_upn = "xqdmgkfkusr01"
+        old_style_cn = "xqd-mg-kfkusr100"
+
+        ok_style = "xqdmgkfkusr001"
+
+        self.assertFalse(has_old_style_upn_principal(ok_style))
+        self.assertTrue(has_old_style_upn_principal(old_style_upn))
+
+        self.assertFalse(has_old_style_cn_principal(ok_style))
+
+        ret = has_old_style_cn_principal(old_style_cn)
+        self.assertTrue(ret)

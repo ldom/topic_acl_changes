@@ -1,3 +1,4 @@
+import re
 from typing import Dict, Set, Tuple
 
 from constants import Consts, ResultSet
@@ -67,12 +68,16 @@ def access_map(acls) -> Dict[str, Dict[str, bool]]:
     return result
 
 
-def has_old_style_cn_principal(acl):
-    return False
+def has_old_style_cn_principal(acl_principal):
+    # old_style_cn /^...-.*-kfkusr\d{3,3}$/
+    old_style_cn = re.compile("^...-.*-kfkusr\\d{3,3}$")
+    return old_style_cn.match(acl_principal) is not None
 
 
-def has_old_style_upn_principal(acl):
-    return False
+def has_old_style_upn_principal(acl_principal):
+    # old_style_upn = /^xq...kfkusr\d{1,2}$/
+    old_style_upn = re.compile("^xq...kfkusr\\d{1,2}$")
+    return old_style_upn.match(acl_principal) is not None
 
 
 def classify_acls(before_topics, after_topics, before_acls, after_acls) -> Dict[ResultSet, Set]:
@@ -129,9 +134,9 @@ def classify_acls(before_topics, after_topics, before_acls, after_acls) -> Dict[
     sets[ResultSet.PRINCIPALS_REMOVED] = principals_before - principals_after
 
     sets[ResultSet.PRINCIPALS_USING_OLD_CN] = set([a.principal for a in after_acls.values()
-                                                   if has_old_style_cn_principal(a)])
+                                                   if has_old_style_cn_principal(a.principal)])
     sets[ResultSet.PRINCIPALS_USING_OLD_UPN] = set([a.principal for a in after_acls.values()
-                                                    if has_old_style_upn_principal(a)])
+                                                    if has_old_style_upn_principal(a.principal)])
 
     sets[ResultSet.PRINCIPALS_AFTER] = principals_after
 
