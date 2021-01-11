@@ -5,18 +5,19 @@ import unittest
 from confluent_kafka.admin import AdminClient, NewTopic
 from confluent_kafka import KafkaException, KafkaError
 
+from acl import ACL
 from input import load_input
-from topic_loader import load_topics_from_cluster
-from acl_loader import load_acls_from_cluster
 from classify import classify_acls, classify_topics
+from topic import Topic
+
 
 class TestLib(unittest.TestCase):
     admin_options = {'bootstrap.servers': '127.0.0.1:9092'}
 
     def test_load_from_cluster(self):
         admin_client = AdminClient(self.admin_options)
-        existing_topics = load_topics_from_cluster(admin_client)
-        # existing_acls = load_acls_from_cluster(admin_client)
+        existing_topics = Topic.create_from_cluster(admin_client)
+        existing_acls = ACL.create_from_cluster(admin_client)
 
         self.assertTrue(True)
 
