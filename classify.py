@@ -1,4 +1,4 @@
-from typing import Dict, Set
+from typing import Dict, Set, Tuple
 
 from constants import Consts, ResultSet
 
@@ -43,6 +43,30 @@ def classify_topics(before, after) -> Dict[ResultSet, Set]:
     return sets
 
 
+def access_map(acls) -> Dict[str, Dict[str, bool]]:
+    result = {}
+    for acl in acls.values():
+        access_read = access_write = False
+        if acl.allow:
+            if acl.operation.lower() == Consts.READ_OPERATION:
+                access_read = True
+            elif acl.operation.lower() == Consts.WRITE_OPERATION:
+                access_write = True
+
+            try:
+                topic_entry = result[acl.name]
+                if access_read:
+                    topic_entry[Consts.READ_OPERATION] = True
+                if access_write:
+                    topic_entry[Consts.WRITE_OPERATION] = True
+            except KeyError:
+                result[acl.name] = {
+                    Consts.READ_OPERATION: access_read,
+                    Consts.WRITE_OPERATION: access_write,
+                }
+    return result
+
+
 def classify_acls(before_topics, after_topics, before_acls, after_acls) -> Dict[ResultSet, Set]:
     sets = {}
 
@@ -77,12 +101,17 @@ def classify_acls(before_topics, after_topics, before_acls, after_acls) -> Dict[
     sets[ResultSet.TOPICS_NO_ACCESS_BEFORE] = before_topics_set - topics_in_before_acls
     sets[ResultSet.TOPICS_NO_ACCESS_AFTER] = after_topics_set - topics_in_after_acls
 
-    access_to_before_topics = None
-    access_to_after_topics = None
+    access_to_before_topics = access_map(before_acls)
+    access_to_after_topics = access_map(after_acls)
 
-    sets[ResultSet.TOPICS_RO_BEFORE] = set()
-    sets[ResultSet.TOPICS_RO_AFTER] = set()
-    sets[ResultSet.TOPICS_WO_BEFORE] = set()
-    sets[ResultSet.TOPICS_WO_AFTER] = set()
+    read_access_to_before = set([k for k,v in access_to_before_topics.items() if v[Consts.READ_OPERATION]])
+    read_access_to_after = set([k for k,v in access_to_after_topics.items() if v[Consts.READ_OPERATION]])
+    write_access_to_before = set([k for k,v in access_to_before_topics.items() if v[Consts.WRITE_OPERATION]])
+    write_access_to_after = set([k for k,v in access_to_after_topics.items() if v[Consts.WRITE_OPERATION]])
+
+    sets[ResultSet.TOPICS_RO_BEFORE] = read_access_to_before - write_access_to_before
+    sets[ResultSet.TOPICS_RO_AFTER] = read_access_to_after - write_access_to_after
+    sets[ResultSet.TOPICS_WO_BEFORE] = write_access_to_before - read_access_to_before
+    sets[ResultSet.TOPICS_WO_AFTER] = write_access_to_after - read_access_to_after
 
     return sets

@@ -19,6 +19,8 @@ class Consts:
     CFG_MAX_BYTES = 'max.message.bytes'
     CFG_RETENTION = 'retention.ms'
 
+    READ_OPERATION = "read"
+    WRITE_OPERATION = "write"
 
 class ResultSet(Enum):
     TEST = auto()
