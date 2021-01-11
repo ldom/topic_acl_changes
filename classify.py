@@ -114,4 +114,15 @@ def classify_acls(before_topics, after_topics, before_acls, after_acls) -> Dict[
     sets[ResultSet.TOPICS_WO_BEFORE] = write_access_to_before - read_access_to_before
     sets[ResultSet.TOPICS_WO_AFTER] = write_access_to_after - read_access_to_after
 
+    principals_before = set(a.principal for a in before_acls.values())
+    principals_after = set(a.principal for a in before_acls.values())
+
+    sets[ResultSet.PRINCIPALS_ADDED] = principals_after - principals_before
+    sets[ResultSet.PRINCIPALS_REMOVED] = principals_before - principals_after
+
+    sets[ResultSet.PRINCIPALS_USING_OLD_CN] = None
+    sets[ResultSet.PRINCIPALS_USING_OLD_UPN] = None
+
+    sets[ResultSet.PRINCIPALS_AFTER] = principals_after
+    
     return sets

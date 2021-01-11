@@ -6,6 +6,7 @@ from acl import ACL
 from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
 from input import load_input
+from report import output
 from topic import Topic
 
 
@@ -48,13 +49,11 @@ def main():
 
     topics_sets = classify_topics(before_topics, after_topics)
     acls_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
+    topics_sets.update(acls_sets)
 
-    success = True
+    output(topics_sets)
 
-    if success:
-        exit(0)
-    else:
-        exit(1)
+    exit(0)
 
 
 if __name__ == "__main__":
