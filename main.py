@@ -6,7 +6,7 @@ from acl import ACL
 from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
 from input import load_input
-from report import output
+from report import output_report
 from topic import Topic
 
 
@@ -16,7 +16,7 @@ def handle_arguments():
     )
 
     parser.add_argument("-i", "--input", help="JSON input file")
-    parser.add_argument("-o", "--output", help="Output file")
+    parser.add_argument("-o", "--output", help="JSON output file (can be used by XXX tool")
 
     parser.add_argument("-c", "--config", help="Config properties for connecting to the cluster, in JSON format. "
                                                "Minimum = '{ \"bootstrap.servers\": \"<ip-or-dns-name>:9092\" }'")
@@ -51,7 +51,9 @@ def main():
     acls_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
     topics_sets.update(acls_sets)
 
-    output(topics_sets)
+    output_report(topics_sets)
+
+    # output_json(args.output)
 
     exit(0)
 

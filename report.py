@@ -32,7 +32,7 @@ titles_map = {
 }
 
 
-def output(result_sets):
+def output_report(result_sets):
     for result_set_number, result_set in result_sets.items():
         print(f"{titles_map[result_set_number]}")
         for result in result_set:

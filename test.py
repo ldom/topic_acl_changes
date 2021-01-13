@@ -282,7 +282,7 @@ class TestLib(unittest.TestCase):
         self.assertEqual(len(topics_sets), 1)
 
     def test_principal_style(self):
-        old_style_upn = "xqdmgkfkusr01"
+        old_style_upn = "xqdmgkfkusr10"
         old_style_cn = "xqd-mg-kfkusr100"
 
         ok_style = "xqdmgkfkusr001"

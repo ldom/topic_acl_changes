@@ -27,7 +27,6 @@ class ResultSet(Enum):
 
     TOPICS_ADDED = auto()
     TOPICS_REMOVED = auto()
-    NEW_REPART_TOPIC_NEEDING_DEL_ACL = auto()
     TOPICS_PARTITION_CHANGED = auto()
     TOPICS_MAX_BYTES_CHANGED = auto()
     TOPICS_RETENTION_CHANGED = auto()
