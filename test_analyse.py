@@ -12,13 +12,13 @@ from topic import Topic
 
 
 class TestLib(unittest.TestCase):
-    admin_options = {'bootstrap.servers': '127.0.0.1:9092'}
+    admin_options = {'bootstrap.servers': 'kafka1:12091'}
 
     def test_load_from_cluster(self):
         admin_client = AdminClient(self.admin_options)
         existing_topics = Topic.create_from_cluster(admin_client)
         existing_acls = ACL.create_from_cluster(admin_client)
-
+        print(existing_acls)
         self.assertTrue(True)
 
     def test_load(self):
