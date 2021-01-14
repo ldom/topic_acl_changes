@@ -15,8 +15,8 @@ def handle_arguments():
         description="Reads a JSON file with topics to delete. Returns 0 for success, otherwise 1. "
     )
 
-    parser.add_argument("-i", "--input", help="JSON input file")
-    parser.add_argument("-o", "--output", help="JSON output file (can be used by XXX tool")
+    parser.add_argument("input", help="JSON input file")
+    parser.add_argument("output", help="JSON output file (can be used by XXX tool")
 
     parser.add_argument("-c", "--config", help="Config properties for connecting to the cluster, in JSON format. "
                                                "Minimum = '{ \"bootstrap.servers\": \"<ip-or-dns-name>:9092\" }'")

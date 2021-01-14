@@ -3,7 +3,6 @@ from constants import ResultSet
 titles_map = {
     ResultSet.TOPICS_ADDED: "Topics Added",
     ResultSet.TOPICS_REMOVED: "Topics Removed",
-    ResultSet.NEW_REPART_TOPIC_NEEDING_DEL_ACL: "NEW_REPART_TOPIC_NEEDING_DEL_ACL",
     ResultSet.TOPICS_PARTITION_CHANGED: "Topics with Partitions Changed",
     ResultSet.TOPICS_MAX_BYTES_CHANGED: "Topics with Max Bytes Changed",
     ResultSet.TOPICS_RETENTION_CHANGED: "Topics with Retention Changed",
