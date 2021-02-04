@@ -1125,8 +1125,12 @@ Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=_confluent-m
         acls = load_from_kafka_acl_output(pnc_output)
         self.assertEqual(len(acls), nb_acls)
 
-    # def test_script_call(self):
-    #     output = ExternalACL.list_acls("kafka1:9091", "/etc/kafka/secrets/client_sasl_plain.config")
-    #     print(output)
-    #     ret = ExternalACL.parse_acl_output(output)
-    #     self.assertEqual(len(ret), 3)
+    def test_script_call(self):
+        list_output = ExternalACL.list_acls("kafka1:9091", "/etc/kafka/secrets/client_sasl_plain.config")
+        ret = ExternalACL.parse_acl_output(list_output)
+        print(ret)
+        self.assertEqual(len(ret), 2)
+
+        acls = load_from_kafka_acl_output(list_output)
+        print(acls)
+        self.assertEqual(len(acls), 3)

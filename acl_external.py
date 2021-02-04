@@ -24,8 +24,8 @@ class ExternalACL():
                                   "--bootstrap-server", bootstrap_server,
                                   "--command-config", command_config,
                                   "--list"]
-        result = subprocess.run(kafka_acl_list_command, capture_output=True)
-        return result.stdout
+        result = subprocess.run(kafka_acl_list_command, stdout=subprocess.PIPE) # , capture_output=True)
+        return result.stdout.decode('utf-8')
 
     @classmethod
     def __is_ignored(cls, line):
