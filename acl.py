@@ -1,4 +1,4 @@
-from acl_external import list_acls, parse_acl_output
+from acl_external import ExternalACL
 from typing import Dict
 
 from constants import Consts
@@ -16,10 +16,10 @@ class ACL:
     @classmethod
     def create_from_cluster(cls, admin_client):
         # query using a script call and later the Admin API
-        acls_raw_output = list_acls()
+        #acls_raw_output = ExternalACL.list_acls()
 
         # parse or load
-
+        pass
 
     @classmethod
     def create_from_json(cls, json_object):

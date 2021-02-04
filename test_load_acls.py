@@ -1,6 +1,7 @@
 import unittest
 
-from acl_external import parse_acl_output
+from acl_external import ExternalACL
+from input import load_from_kafka_acl_output
 
 
 class TestLoadACLs(unittest.TestCase):
@@ -25,9 +26,10 @@ Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=_confluent-m
 	(principal=User:control_center, host=*, operation=DESCRIBE, permissionType=ALLOW)
 	(principal=User:control_center, host=*, operation=DESCRIBE_CONFIGS, permissionType=ALLOW)
         """
-        ret = parse_acl_output(kafka_acls_output)
+        ret = ExternalACL.parse_acl_output(kafka_acls_output)
         self.assertEqual(len(ret), 3)
         self.assertEqual(len(ret[2]['acls']), 10)
+
 
     def test_long_output(self):
         pnc_output = """
@@ -1113,5 +1115,18 @@ Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=_confluent-m
          	(principal=User:xqrewkfkusr001, host=*, operation=WRITE, permissionType=ALLOW) 
 
                 """
-        ret = parse_acl_output(pnc_output)
-        self.assertEqual(len(ret), 230)
+        parse_results = ExternalACL.parse_acl_output(pnc_output)
+        self.assertEqual(len(parse_results), 230)
+
+        nb_acls = 0
+        for res in parse_results:
+            nb_acls += len(res[ExternalACL.C_ACLS])
+
+        acls = load_from_kafka_acl_output(pnc_output)
+        self.assertEqual(len(acls), nb_acls)
+
+    # def test_script_call(self):
+    #     output = ExternalACL.list_acls("kafka1:9091", "/etc/kafka/secrets/client_sasl_plain.config")
+    #     print(output)
+    #     ret = ExternalACL.parse_acl_output(output)
+    #     self.assertEqual(len(ret), 3)
