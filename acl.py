@@ -1,6 +1,7 @@
-from acl_external import ExternalACL
 from typing import Dict
 
+from acl_external import ExternalACL
+from input import load_from_kafka_acl_output
 from constants import Consts
 
 
@@ -14,12 +15,9 @@ class ACL:
         self.signature = f"{self.name}/{self.principal}/{self.operation}/{self.type}/{self.allow}"
 
     @classmethod
-    def create_from_cluster(cls, admin_client):
-        # query using a script call and later the Admin API
-        #acls_raw_output = ExternalACL.list_acls()
-
-        # parse or load
-        pass
+    def create_from_cluster(cls, admin_client, bootstrap_servers, command_config):
+        list_output = ExternalACL.list_acls(bootstrap_servers, command_config)
+        return load_from_kafka_acl_output(list_output)
 
     @classmethod
     def create_from_json(cls, json_object):

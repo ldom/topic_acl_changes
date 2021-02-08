@@ -16,9 +16,8 @@ class TestLib(unittest.TestCase):
 
     def test_load_from_cluster(self):
         admin_client = AdminClient(self.admin_options)
-        existing_topics = Topic.create_from_cluster(admin_client)
-        existing_acls = ACL.create_from_cluster(admin_client)
-        print(existing_acls)
+        _ = Topic.create_from_cluster(admin_client)
+        _ = ACL.create_from_cluster(admin_client, self.admin_options['bootstrap.servers'], None)
         self.assertTrue(True)
 
     def test_load(self):

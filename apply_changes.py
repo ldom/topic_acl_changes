@@ -2,19 +2,13 @@ import argparse
 
 from confluent_kafka.admin import AdminClient
 
-from acl import ACL
-from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
 from input import load_input
-from report import output_report
-from topic import Topic
 
 
 def handle_arguments():
     parser = argparse.ArgumentParser(
-        description="Compare the desired state (from a JSON file) against an existing cluster. Produces a readable "
-                    "output as well as a JSON file to be used by the apply_changes tool. Returns 0 for success, "
-                    "otherwise 1. "
+        description="Reads a JSON file with changes to apply (on topics and ACLs). Returns 0 for success, otherwise 1."
     )
 
     parser.add_argument("input", help="JSON input file")
@@ -52,16 +46,7 @@ def main():
 
     admin_client = AdminClient(admin_options)
 
-    before_topics = Topic.create_from_cluster(admin_client)
-    before_acls = ACL.create_from_cluster(admin_client, admin_options['bootstrap.servers'], args.comand_config)
-
-    topics_sets = classify_topics(before_topics, after_topics)
-    acls_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
-    topics_sets.update(acls_sets)
-
-    output_report(topics_sets)
-
-    # output_json(args.output)
+    # TODO
 
     exit(0)
 
