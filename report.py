@@ -37,3 +37,7 @@ def output_report(result_sets):
         for result in result_set:
             print(result)
         print("------------------------------------------------------------------")
+
+
+def output_changes(result_sets):
+    return {}

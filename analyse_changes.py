@@ -1,4 +1,5 @@
 import argparse
+import json
 
 from confluent_kafka.admin import AdminClient
 
@@ -6,7 +7,7 @@ from acl import ACL
 from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
 from input import load_input
-from report import output_report
+from report import output_changes, output_report
 from topic import Topic
 
 
@@ -41,7 +42,7 @@ def main():
     ####################################################################################################
     admin_options = {'bootstrap.servers': '192.168.0.129:9092'}
 
-    if args.config:
+    if args.connect_config:
         admin_options = read_json_input(args.connect_config)
 
     ####################################################################################################
@@ -60,8 +61,10 @@ def main():
     topics_sets.update(acls_sets)
 
     output_report(topics_sets)
-
-    # output_json(args.output)
+    changes = output_changes(topics_sets)
+    json_text = json.dumps(changes)
+    with open(args.output, 'w') as data_file:
+        data_file.write(json_text)
 
     exit(0)
 
