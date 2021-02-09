@@ -31,6 +31,7 @@ class ResultSet(Enum):
     TOPICS_MAX_BYTES_CHANGED = auto()
     TOPICS_RETENTION_CHANGED = auto()
     TOPICS_FINITE_RETENTION = auto()
+    TOPICS_UPDATED = auto()
 
     ACLS_ADDED = auto()
     ACLS_REMOVED = auto()

@@ -3,6 +3,7 @@ from constants import ResultSet
 titles_map = {
     ResultSet.TOPICS_ADDED: "Topics Added",
     ResultSet.TOPICS_REMOVED: "Topics Removed",
+    ResultSet.TOPICS_UPDATED: "Topics Updated",
     ResultSet.TOPICS_PARTITION_CHANGED: "Topics with Partitions Changed",
     ResultSet.TOPICS_MAX_BYTES_CHANGED: "Topics with Max Bytes Changed",
     ResultSet.TOPICS_RETENTION_CHANGED: "Topics with Retention Changed",
@@ -43,11 +44,7 @@ def output_changes(result_sets, before_topics, before_acls, after_topics, after_
     # prepare the work to do: take result sets and build lists with all the details (topic config, etc)
     topics_to_add = [after_topics[topic_name] for topic_name in result_sets[ResultSet.TOPICS_ADDED]]
     topics_to_remove = [before_topics[topic_name] for topic_name in result_sets[ResultSet.TOPICS_REMOVED]]
-    topics_to_update = [after_topics[topic_name]
-                        for topic_name in set(result_sets[ResultSet.TOPICS_RETENTION_CHANGED] |
-                                              result_sets[ResultSet.TOPICS_MAX_BYTES_CHANGED] |
-                                              result_sets[ResultSet.TOPICS_PARTITION_CHANGED])
-                        ]
+    topics_to_update = [after_topics[topic_name] for topic_name in result_sets[ResultSet.TOPICS_UPDATED]]
 
     acls_to_add = [after_acls[acl_sig] for acl_sig in result_sets[ResultSet.ACLS_ADDED]]
     acls_to_remove = [before_acls[acl_sig] for acl_sig in result_sets[ResultSet.ACLS_REMOVED]]

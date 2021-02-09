@@ -307,6 +307,7 @@ class TestLib(unittest.TestCase):
         changes = output_changes(topics_sets, before_topics, before_acls, after_topics, after_acls)
         self.assertEqual(len(changes['topics']['added']), len(topics_sets[ResultSet.TOPICS_ADDED]))
         self.assertEqual(len(changes['topics']['removed']), len(topics_sets[ResultSet.TOPICS_REMOVED]))
+        self.assertEqual(len(changes['topics']['updated']), len(topics_sets[ResultSet.TOPICS_UPDATED]))
 
         self.assertEqual(len(changes['acls']['added']), len(topics_sets[ResultSet.ACLS_ADDED]))
         self.assertEqual(len(changes['acls']['removed']), len(topics_sets[ResultSet.ACLS_REMOVED]))

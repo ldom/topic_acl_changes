@@ -19,21 +19,29 @@ def classify_topics(before, after) -> Dict[ResultSet, Set]:
     sets[ResultSet.TOPICS_MAX_BYTES_CHANGED] = set()
     sets[ResultSet.TOPICS_RETENTION_CHANGED] = set()
     sets[ResultSet.TOPICS_FINITE_RETENTION] = set()
+    sets[ResultSet.TOPICS_UPDATED] = set()
 
     for t in remaining_topics:
         topic_before = before[t]
         topic_after = after[t]
 
         if topic_before.nb_partitions != topic_after.nb_partitions:
-            sets[ResultSet.TOPICS_PARTITION_CHANGED].add(t)  # TODO add value
+            sets[ResultSet.TOPICS_PARTITION_CHANGED].add(t)
+            sets[ResultSet.TOPICS_UPDATED].add(t)
 
         if topic_before.config_properties.get(Consts.CFG_MAX_BYTES) \
                 != topic_after.config_properties.get(Consts.CFG_MAX_BYTES):
-            sets[ResultSet.TOPICS_MAX_BYTES_CHANGED].add(t)  # TODO add value
+            sets[ResultSet.TOPICS_MAX_BYTES_CHANGED].add(t)
+            sets[ResultSet.TOPICS_UPDATED].add(t)
 
         if topic_before.config_properties.get(Consts.CFG_RETENTION) \
                 != topic_after.config_properties.get(Consts.CFG_RETENTION):
-            sets[ResultSet.TOPICS_RETENTION_CHANGED].add(t)  # TODO add value
+            sets[ResultSet.TOPICS_RETENTION_CHANGED].add(t)
+            sets[ResultSet.TOPICS_UPDATED].add(t)
+
+        if (topic_before.config_properties != topic_after.config_properties) \
+                or (topic_before.placement != topic_after.placement):
+            sets[ResultSet.TOPICS_UPDATED].add(t)
 
     for t in after_topics:
         topic_after = after[t]
