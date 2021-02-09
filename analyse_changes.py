@@ -61,7 +61,7 @@ def main():
     topics_sets.update(acls_sets)
 
     output_report(topics_sets)
-    changes = output_changes(topics_sets)
+    changes = output_changes(topics_sets, before_topics, before_acls, after_topics, after_acls)
     json_text = json.dumps(changes)
     with open(args.output, 'w') as data_file:
         data_file.write(json_text)

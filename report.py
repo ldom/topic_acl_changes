@@ -39,5 +39,20 @@ def output_report(result_sets):
         print("------------------------------------------------------------------")
 
 
-def output_changes(result_sets):
-    return {}
+def output_changes(result_sets, before_topics, before_acls, after_topics, after_acls):
+    # prepare the work to do: take result sets and build lists with all the details (topic config, etc)
+    topics_to_add = [after_topics[topic_name] for topic_name in result_sets[ResultSet.TOPICS_ADDED]]
+    topics_to_remove = [before_topics[topic_name] for topic_name in result_sets[ResultSet.TOPICS_REMOVED]]
+    topics_to_update = [after_topics[topic_name]
+                        for topic_name in set(result_sets[ResultSet.TOPICS_RETENTION_CHANGED] |
+                                              result_sets[ResultSet.TOPICS_MAX_BYTES_CHANGED] |
+                                              result_sets[ResultSet.TOPICS_PARTITION_CHANGED])
+                        ]
+
+    acls_to_add = [after_acls[acl_sig] for acl_sig in result_sets[ResultSet.ACLS_ADDED]]
+    acls_to_remove = [before_acls[acl_sig] for acl_sig in result_sets[ResultSet.ACLS_REMOVED]]
+
+    return {
+        'topics': {'added': topics_to_add, 'updated': topics_to_update, 'removed': topics_to_remove},
+        'acls': {'added': acls_to_add, 'removed': acls_to_remove}
+    }

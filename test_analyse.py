@@ -2,12 +2,13 @@ import json
 import time
 import unittest
 
-from confluent_kafka.admin import AdminClient, NewTopic
-from confluent_kafka import KafkaException, KafkaError
+from confluent_kafka.admin import AdminClient
 
 from acl import ACL
-from input import load_input
 from classify import classify_acls, classify_topics, has_old_style_upn_principal, has_old_style_cn_principal
+from constants import ResultSet
+from input import load_input
+from report import output_changes
 from topic import Topic
 
 
@@ -268,7 +269,6 @@ class TestLib(unittest.TestCase):
             ]
         }
         """
-
         before_data = json.loads(before_json)
         after_data = json.loads(after_json)
 
@@ -277,8 +277,39 @@ class TestLib(unittest.TestCase):
 
         topics_sets = classify_topics(before_topics, after_topics)
         mixed_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
+        topics_sets.update(mixed_sets)
 
-        self.assertEqual(len(topics_sets), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_ADDED]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_REMOVED]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_PARTITION_CHANGED]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_MAX_BYTES_CHANGED]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_RETENTION_CHANGED]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_FINITE_RETENTION]), 3)
+
+        self.assertEqual(len(topics_sets[ResultSet.ACLS_ADDED]), 7)
+        self.assertEqual(len(topics_sets[ResultSet.ACLS_REMOVED]), 5)
+        self.assertEqual(len(topics_sets[ResultSet.ACLS_ADDED_TO_ADDED_TOPICS]), 0)
+        self.assertEqual(len(topics_sets[ResultSet.ACLS_ADDED_TO_EXISTING_TOPICS]), 7)
+        self.assertEqual(len(topics_sets[ResultSet.ACLS_REMOVED_FROM_EXISTING_TOPICS]), 5)
+
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_NO_ACCESS_BEFORE]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_NO_ACCESS_AFTER]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_RO_BEFORE]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_RO_AFTER]), 0)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_WO_BEFORE]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.TOPICS_WO_AFTER]), 1)
+
+        self.assertEqual(len(topics_sets[ResultSet.PRINCIPALS_ADDED]), 3)
+        self.assertEqual(len(topics_sets[ResultSet.PRINCIPALS_AFTER]), 8)
+        self.assertEqual(len(topics_sets[ResultSet.PRINCIPALS_REMOVED]), 1)
+        self.assertEqual(len(topics_sets[ResultSet.PRINCIPALS_USING_OLD_CN]), 0)
+
+        changes = output_changes(topics_sets, before_topics, before_acls, after_topics, after_acls)
+        self.assertEqual(len(changes['topics']['added']), len(topics_sets[ResultSet.TOPICS_ADDED]))
+        self.assertEqual(len(changes['topics']['removed']), len(topics_sets[ResultSet.TOPICS_REMOVED]))
+
+        self.assertEqual(len(changes['acls']['added']), len(topics_sets[ResultSet.ACLS_ADDED]))
+        self.assertEqual(len(changes['acls']['removed']), len(topics_sets[ResultSet.ACLS_REMOVED]))
 
     def test_principal_style(self):
         old_style_upn = "xqdmgkfkusr10"
