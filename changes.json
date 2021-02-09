@@ -1,0 +1,153 @@
+{
+  "topics": {
+    "added": [
+      {
+        "name": "BIAN.NEW",
+        "nb_partitions": 120,
+        "placement": "async",
+        "config_properties": {
+          "cleanup.policy": "delete",
+          "compression.type": "producer",
+          "retention.ms": 2592000000
+        }
+      }
+    ],
+    "updated": [
+      {
+        "name": "BIAN.Account.1",
+        "nb_partitions": 60,
+        "placement": "async",
+        "config_properties": {
+          "cleanup.policy": "delete",
+          "compression.type": "producer",
+          "retention.ms": 2592000000,
+          "max.message.bytes": 123456
+        }
+      },
+      {
+        "name": "BIAN.Account.2",
+        "nb_partitions": 120,
+        "placement": "async",
+        "config_properties": {
+          "cleanup.policy": "delete",
+          "compression.type": "producer",
+          "retention.ms": 122000
+        }
+      }
+    ],
+    "removed": [
+      {
+        "name": "BIAN.Account.AccountModality",
+        "nb_partitions": 120,
+        "placement": "async",
+        "config_properties": {
+          "cleanup.policy": "delete",
+          "compression.type": "producer",
+          "retention.ms": 2592000000
+        }
+      }
+    ]
+  },
+  "acls": {
+    "added": [
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002BB",
+        "operation": "READ",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account/xqdspkfkusr002BB/READ/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002",
+        "operation": "READ",
+        "type": "TOPIC",
+        "allow": false,
+        "signature": "BIAN.Account/xqdspkfkusr002/READ/TOPIC/False"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdmgkfkusr001CC",
+        "operation": "WRITE",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account/xqdmgkfkusr001CC/WRITE/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account.2",
+        "principal": "xqdmgkfkusr001CCYY",
+        "operation": "WRITE",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account.2/xqdmgkfkusr001CCYY/WRITE/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account.1",
+        "principal": "xqdspkfkusr002BBXX",
+        "operation": "WRITE",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account.1/xqdspkfkusr002BBXX/WRITE/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account.1",
+        "principal": "xqdspkfkusr002DD",
+        "operation": "READ",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account.1/xqdspkfkusr002DD/READ/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002DDZZ",
+        "operation": "READ",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account/xqdspkfkusr002DDZZ/READ/TOPIC/True"
+      }
+    ],
+    "removed": [
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002",
+        "operation": "READ",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account/xqdspkfkusr002/READ/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdmgkfkusr001AA",
+        "operation": "WRITE",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account/xqdmgkfkusr001AA/WRITE/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account.2",
+        "principal": "xqdmgkfkusr001CC",
+        "operation": "WRITE",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account.2/xqdmgkfkusr001CC/WRITE/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account.1",
+        "principal": "xqdspkfkusr002BB",
+        "operation": "READ",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account.1/xqdspkfkusr002BB/READ/TOPIC/True"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002DD",
+        "operation": "READ",
+        "type": "TOPIC",
+        "allow": true,
+        "signature": "BIAN.Account/xqdspkfkusr002DD/READ/TOPIC/True"
+      }
+    ]
+  }
+}

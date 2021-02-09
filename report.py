@@ -1,4 +1,4 @@
-from constants import ResultSet
+from constants import Consts, ResultSet
 
 titles_map = {
     ResultSet.TOPICS_ADDED: "Topics Added",
@@ -50,6 +50,10 @@ def output_changes(result_sets, before_topics, before_acls, after_topics, after_
     acls_to_remove = [before_acls[acl_sig] for acl_sig in result_sets[ResultSet.ACLS_REMOVED]]
 
     return {
-        'topics': {'added': topics_to_add, 'updated': topics_to_update, 'removed': topics_to_remove},
-        'acls': {'added': acls_to_add, 'removed': acls_to_remove}
+        Consts.TOPICS: {Consts.ADDED: topics_to_add,
+                        Consts.UPDATED: topics_to_update,
+                        Consts.REMOVED: topics_to_remove},
+
+        Consts.ACLS: {Consts.ADDED: acls_to_add,
+                      Consts.REMOVED: acls_to_remove}
     }

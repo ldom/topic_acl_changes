@@ -7,7 +7,7 @@ from confluent_kafka.admin import AdminClient
 from acl import ACL
 from classify import classify_acls, classify_topics, has_old_style_upn_principal, has_old_style_cn_principal
 from constants import ResultSet
-from input import load_input
+from input import load_analysis_input
 from report import output_changes
 from topic import Topic
 
@@ -67,7 +67,7 @@ class TestLib(unittest.TestCase):
 
         input_data = json.loads(input_json)
 
-        topics, acls = load_input(input_data)
+        topics, acls = load_analysis_input(input_data)
 
         self.assertEqual(len(topics), 2)
         self.assertEqual(len(acls), 2)
@@ -272,8 +272,8 @@ class TestLib(unittest.TestCase):
         before_data = json.loads(before_json)
         after_data = json.loads(after_json)
 
-        before_topics, before_acls = load_input(before_data)
-        after_topics, after_acls = load_input(after_data)
+        before_topics, before_acls = load_analysis_input(before_data)
+        after_topics, after_acls = load_analysis_input(after_data)
 
         topics_sets = classify_topics(before_topics, after_topics)
         mixed_sets = classify_acls(before_topics, after_topics, before_acls, after_acls)
@@ -311,6 +311,15 @@ class TestLib(unittest.TestCase):
 
         self.assertEqual(len(changes['acls']['added']), len(topics_sets[ResultSet.ACLS_ADDED]))
         self.assertEqual(len(changes['acls']['removed']), len(topics_sets[ResultSet.ACLS_REMOVED]))
+
+        def dumper(obj):
+            try:
+                return obj.toJSON()
+            except:
+                return obj.__dict__
+
+        with open("changes.json", 'w') as f:
+            f.write(json.dumps(changes, default=dumper, indent=2))
 
     def test_principal_style(self):
         old_style_upn = "xqdmgkfkusr10"

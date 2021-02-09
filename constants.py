@@ -6,9 +6,14 @@ class Consts:
     ACLS = "acls"
 
     T_TOPIC = "topic"
+    T_NAME = "name"
     T_PARTITIONS = "partitions"
     T_PLACEMENT = "placement"
     T_CONFIG = "config"
+    T_CONFIG_PROPS = "config_properties"
+
+    T_PLACEMENT_PROP = 'confluent.placement.constraints'
+    T_NB_PARTITIONS = 'nb_partitions'
 
     A_NAME = 'name'
     A_PRINCIPAL = 'principal'
@@ -21,6 +26,11 @@ class Consts:
 
     READ_OPERATION = "read"
     WRITE_OPERATION = "write"
+
+    ADDED = 'added'
+    UPDATED = 'updated'
+    REMOVED = 'removed'
+
 
 class ResultSet(Enum):
     TEST = auto()

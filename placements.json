@@ -1,0 +1,13 @@
+{
+  "async": {
+    "version": 1,
+    "replicas": [{"count": 2, "constraints": {"rack": "gf2"}}],
+    "observers": [{"count": 2, "constraints": {"rack": "gf1"}}]
+  },
+  "sync": {
+    "version": 1,
+    "replicas": [{"count": 2, "constraints": {"rack": "gf2"}},
+                 {"count": 2, "constraints": {"rack": "gf1"}}],
+    "observers": []
+  }
+}

@@ -6,7 +6,7 @@ from confluent_kafka.admin import AdminClient
 from acl import ACL
 from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
-from input import load_input
+from input import load_analysis_input
 from report import output_changes, output_report
 from topic import Topic
 
@@ -49,7 +49,7 @@ def main():
 
     # read JSON input data
     input_data = read_json_input(args.input)
-    after_topics, after_acls = load_input(input_data)
+    after_topics, after_acls = load_analysis_input(input_data)
 
     admin_client = AdminClient(admin_options)
 
@@ -62,9 +62,15 @@ def main():
 
     output_report(topics_sets)
     changes = output_changes(topics_sets, before_topics, before_acls, after_topics, after_acls)
-    json_text = json.dumps(changes)
-    with open(args.output, 'w') as data_file:
-        data_file.write(json_text)
+
+    def dumper(obj):
+        try:
+            return obj.toJSON()
+        except:
+            return obj.__dict__
+
+    with open(args.output, 'w') as f:
+        f.write(json.dumps(changes, default=dumper, indent=2))
 
     exit(0)
 
