@@ -50,7 +50,7 @@ def main():
     ####################################################################################################
     # default options
     ####################################################################################################
-    admin_options = {'bootstrap.servers': '192.168.0.129:9092'}
+    admin_options = {Consts.CFG_BOOTSTRAP: '192.168.0.129:9092'}
     placements = None
 
     if args.connect_config:
@@ -63,20 +63,28 @@ def main():
     # read JSON input data
     input_data = read_json_input(args.input)
 
+    admin_client = AdminClient(admin_options)
+
     topic_changes = TopicChanges(input_data[Consts.TOPICS][Consts.ADDED],
                                  input_data[Consts.TOPICS][Consts.UPDATED],
-                                 input_data[Consts.TOPICS][Consts.REMOVED])
+                                 input_data[Consts.TOPICS][Consts.REMOVED],
+                                 admin_client,
+                                 bootstrap_server_url=admin_options[Consts.CFG_BOOTSTRAP],
+                                 command_config=args.command_config,
+                                 placements=placements)
 
     acl_changes = ACLChanges(input_data[Consts.ACLS][Consts.ADDED],
-                             input_data[Consts.ACLS][Consts.REMOVED])
+                             input_data[Consts.ACLS][Consts.REMOVED],
+                             admin_client,
+                             bootstrap_server_url=admin_options[Consts.CFG_BOOTSTRAP],
+                             command_config=args.command_config)
 
     if args.to_scripts:
-        print(topic_changes.apply_to_scripts(args.connect_config, args.command_config, placements))
-        print(acl_changes.apply_to_scripts(args.connect_config, args.command_config))
+        print(topic_changes.apply_to_scripts())
+        print(acl_changes.apply_to_scripts())
     else:
-        admin_client = AdminClient(admin_options)
-        topic_changes.apply_to_cluster(admin_client, args.connect_config, args.command_config, placements)
-        acl_changes.apply_to_cluster(admin_client, args.connect_config, args.command_config)
+        topic_changes.apply_to_cluster()
+        acl_changes.apply_to_cluster()
 
     exit(0)
 

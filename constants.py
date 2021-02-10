@@ -23,6 +23,7 @@ class Consts:
 
     CFG_MAX_BYTES = 'max.message.bytes'
     CFG_RETENTION = 'retention.ms'
+    CFG_BOOTSTRAP = 'bootstrap.servers'
 
     READ_OPERATION = "read"
     WRITE_OPERATION = "write"

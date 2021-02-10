@@ -4,12 +4,14 @@ import unittest
 from confluent_kafka.admin import AdminClient, NewTopic
 from confluent_kafka import KafkaException, KafkaError
 
-from safe_delete import gather_topic_info, topic_exists, topics_recreate, topic_safe_delete, topics_safe_delete
+from cluster_info import get_zookeeper_url
+from safe_delete import gather_cluster_info, gather_topic_info, topic_exists, \
+    topics_recreate, topic_safe_delete, topics_safe_delete
 from topic_storage import get_latest_applied, set_latest_applied
 
 
 class TestDelete(unittest.TestCase):
-    bootstrap_servers = '127.0.0.1:9092'
+    bootstrap_servers = 'localhost:9092'
     consumer_options = {
         'bootstrap.servers': bootstrap_servers,
         'group.id': 'test_safe_delete'
@@ -98,3 +100,10 @@ class TestDelete(unittest.TestCase):
         topic_names = ["test_3"]
         ret, _ = topics_recreate(admin_connection=a, topic_names=topic_names)
         self.assertFalse(ret)
+
+    def test_get_config(self):
+        a = AdminClient({'bootstrap.servers': self.bootstrap_servers})
+        broker = self.bootstrap_servers.split(':')[0]
+        ret = gather_cluster_info(a)
+        ret = get_zookeeper_url(a)
+        self.assertEqual(ret, "localhost:2181")
