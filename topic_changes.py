@@ -88,25 +88,27 @@ class TopicChanges():
         output = []
 
         for topic in self.topics_to_create:
-            placement_option = f"--replica-placement {self.placements[topic.placement]}" if topic.placement else ""
+            placement_option = f"--replica-placement {self.placements[topic[Consts.T_PLACEMENT]]}" \
+                if topic.get(Consts.T_PLACEMENT) else ""
 
-            topic_props = self.topic_properties(topic.config_properties)
+            topic_props = self.topic_properties(topic[Consts.T_CONFIG_PROPS])
             command_config_option = f"--command-config {self.command_config}" if self.command_config else ""
 
             create_topic_cmd = f"kafka-topics --bootstrap-server {self.bootstrap_server_url} {command_config_option} " \
-                               f"--alter --topic {topic.name} --partitions {topic.nb_partitions} " \
+                               f"--alter --topic {topic[Consts.T_NAME]} --partitions {topic[Consts.T_NB_PARTITIONS]} " \
                                f"{placement_option} {topic_props}"
 
             output.append(create_topic_cmd)
 
         for topic in self.topics_to_update:
-            placement_option = f"--replica-placement {self.placements[topic.placement]}" if topic.placement else ""
+            placement_option = f"--replica-placement {self.placements[topic[Consts.T_PLACEMENT]]}" \
+                if topic.get(Consts.T_PLACEMENT) else ""
 
-            topic_props = self.topic_properties(topic.config_properties, is_for_kafka_configs=True)
+            topic_props = self.topic_properties(topic[Consts.T_CONFIG_PROPS], is_for_kafka_configs=True)
             command_config_option = f"--command-config {self.command_config}" if self.command_config else ""
 
             update_topic_cmd = f"kafka-configs --zookeeper {self.zookeeper_url} {command_config_option} " \
-                               f"--alter --entity-type topics --entity-name {topic.name} " \
+                               f"--alter --entity-type topics --entity-name {topic[Consts.T_NAME]} " \
                                f"{placement_option} {topic_props}"
 
             # todo: deal with nb_partitions changes f"--partitions {topic.nb_partitions} " \
@@ -117,7 +119,7 @@ class TopicChanges():
             command_config_option = f"--command-config {self.command_config}" if self.command_config else ""
 
             delete_topic_cmd = f"kafka-topics --bootstrap-server {self.bootstrap_server_url} {command_config_option} " \
-                               f"--delete --topic {topic.name}"
+                               f"--delete --topic {topic[Consts.T_NAME]}"
 
             output.append(delete_topic_cmd)
 
