@@ -1,3 +1,6 @@
+import json
+from os import path
+
 from confluent_kafka.admin import ConfigResource, NewTopic, RESOURCE_TOPIC
 from confluent_kafka import KafkaException, KafkaError
 
@@ -84,11 +87,21 @@ class TopicChanges():
 
             return " ".join(props)
 
+    @staticmethod
+    def save_to_placement(name, placement_data):
+        filename = f"./placement_{name}.json"
+        if not path.exists(filename):
+            with open(filename, 'w') as f:
+                f.write(json.dumps(placement_data, indent=2))
+        return filename
+
     def apply_to_scripts(self):
         output = []
 
         for topic in self.topics_to_create:
-            placement_option = f"--replica-placement {self.placements[topic[Consts.T_PLACEMENT]]}" \
+            placement_name = topic[Consts.T_PLACEMENT]
+            placement_file = self.save_to_placement(name=placement_name, placement_data=self.placements[placement_name])
+            placement_option = f"--replica-placement {placement_file}" \
                 if topic.get(Consts.T_PLACEMENT) else ""
 
             topic_props = self.topic_properties(topic[Consts.T_CONFIG_PROPS])
@@ -101,7 +114,9 @@ class TopicChanges():
             output.append(create_topic_cmd)
 
         for topic in self.topics_to_update:
-            placement_option = f"--replica-placement {self.placements[topic[Consts.T_PLACEMENT]]}" \
+            placement_name = topic[Consts.T_PLACEMENT]
+            placement_file = self.save_to_placement(name=placement_name, placement_data=self.placements[placement_name])
+            placement_option = f"--replica-placement {placement_file}" \
                 if topic.get(Consts.T_PLACEMENT) else ""
 
             topic_props = self.topic_properties(topic[Consts.T_CONFIG_PROPS], is_for_kafka_configs=True)

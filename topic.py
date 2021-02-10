@@ -20,6 +20,7 @@ class Topic:
         self.name = name
         self.nb_partitions = nb_partitions
         self.placement = placement
+
         self.config_properties = config_properties
 
     @staticmethod
@@ -65,7 +66,7 @@ class Topic:
             topics[topic_name] = cls(
                 name=topic_name,
                 nb_partitions=nb_partitions,
-                placement="",
+                placement="",       # TODO
                 config_properties=topic_info.full_config,
             )
         return topics
