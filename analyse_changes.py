@@ -6,6 +6,7 @@ from confluent_kafka.admin import AdminClient
 from acl import ACL
 from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
+from constants import Consts
 from input import load_analysis_input
 from report import output_changes, output_report
 from topic import Topic
@@ -30,8 +31,13 @@ def handle_arguments():
                              "Minimum = '{ \"bootstrap.servers\": \"<ip-or-dns-name>:9092\" }'",
                         default=None)
 
-    return parser.parse_args()
+    parser.add_argument("--placements",
+                        help="File with placement constraints, in JSON format. "
+                             "For example: '{ \"sync\": { \"version\": 1, "
+                             "\"replicas\": [{\"count\": 2, \"constraints\": {\"rack\": \"gf2\"}}, "
+                             "{\"count\": 2, \"constraints\": {\"rack\": \"gf1\"}}] } }'")
 
+    return parser.parse_args()
 
 def main():
     # get the command line arguments
@@ -41,9 +47,13 @@ def main():
     # default options
     ####################################################################################################
     admin_options = {'bootstrap.servers': '192.168.0.129:9092'}
+    placements = None
 
     if args.connect_config:
         admin_options = read_json_input(args.connect_config)
+    if args.placements:
+        placements = read_json_input(args.placements)
+        Topic.normalize_placements(placements)
 
     ####################################################################################################
 
@@ -53,7 +63,7 @@ def main():
 
     admin_client = AdminClient(admin_options)
 
-    before_topics = Topic.create_from_cluster(admin_client)
+    before_topics = Topic.create_from_cluster(admin_client, placements)
     before_acls = ACL.create_from_cluster(admin_client, admin_options['bootstrap.servers'], args.comand_config)
 
     topics_sets = classify_topics(before_topics, after_topics)

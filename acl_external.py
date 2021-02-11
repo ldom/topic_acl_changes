@@ -20,10 +20,14 @@ class ExternalACL():
 
     @staticmethod
     def list_acls(bootstrap_server, command_config):
+
+
         kafka_acl_list_command = ["kafka-acls",
                                   "--bootstrap-server", bootstrap_server,
-                                  "--command-config", command_config,
                                   "--list"]
+        if command_config:
+            kafka_acl_list_command.extend(["--command-config", command_config])
+
         result = subprocess.run(kafka_acl_list_command, stdout=subprocess.PIPE) # , capture_output=True)
         return result.stdout.decode('utf-8')
 

@@ -13,13 +13,21 @@ from topic import Topic
 
 
 class TestLib(unittest.TestCase):
-    admin_options = {'bootstrap.servers': 'kafka1:12091'}
+    admin_options = {'bootstrap.servers': 'localhost:9092'}
 
     def test_load_from_cluster(self):
+        placements = {
+            "simple": {
+                "version": 1,
+                "replicas": [{"count": 1, "constraints": {"rack": "gf1"}}]
+            }
+        }
+        Topic.normalize_placements(placements)
+
         admin_client = AdminClient(self.admin_options)
-        _ = Topic.create_from_cluster(admin_client)
+        _ = Topic.create_from_cluster(admin_client, placements)
         _ = ACL.create_from_cluster(admin_client, self.admin_options['bootstrap.servers'], None)
-        self.assertTrue(True)
+        self.assertTrue(True)  # do better
 
     def test_load(self):
         input_json = """

@@ -14,6 +14,7 @@ class Consts:
 
     T_PLACEMENT_PROP = 'confluent.placement.constraints'
     T_NB_PARTITIONS = 'nb_partitions'
+    T_OBSERVERS = "observers"
 
     A_NAME = 'name'
     A_PRINCIPAL = 'principal'
