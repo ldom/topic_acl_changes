@@ -95,15 +95,20 @@ class TopicChanges():
                 f.write(json.dumps(placement_data, indent=2))
         return filename
 
+    def placement_option(self, topic):
+        placement_name = topic.get(Consts.T_PLACEMENT)
+        placement_option = ""
+        if placement_name and self.placements:
+            placement_file = self.save_to_placement(name=placement_name, placement_data=self.placements[placement_name])
+            placement_option = f"--replica-placement {placement_file}"
+
+        return placement_option
+
     def apply_to_scripts(self):
         output = []
 
         for topic in self.topics_to_create:
-            placement_name = topic[Consts.T_PLACEMENT]
-            placement_file = self.save_to_placement(name=placement_name, placement_data=self.placements[placement_name])
-            placement_option = f"--replica-placement {placement_file}" \
-                if topic.get(Consts.T_PLACEMENT) else ""
-
+            placement_option = self.placement_option(topic)
             topic_props = self.topic_properties(topic[Consts.T_CONFIG_PROPS])
             command_config_option = f"--command-config {self.command_config}" if self.command_config else ""
 
@@ -114,11 +119,7 @@ class TopicChanges():
             output.append(create_topic_cmd)
 
         for topic in self.topics_to_update:
-            placement_name = topic[Consts.T_PLACEMENT]
-            placement_file = self.save_to_placement(name=placement_name, placement_data=self.placements[placement_name])
-            placement_option = f"--replica-placement {placement_file}" \
-                if topic.get(Consts.T_PLACEMENT) else ""
-
+            placement_option = self.placement_option(topic)
             topic_props = self.topic_properties(topic[Consts.T_CONFIG_PROPS], is_for_kafka_configs=True)
             command_config_option = f"--command-config {self.command_config}" if self.command_config else ""
 
@@ -138,4 +139,4 @@ class TopicChanges():
 
             output.append(delete_topic_cmd)
 
-        return "\n\n".join(output)
+        return "\n".join(output)

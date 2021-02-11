@@ -222,6 +222,7 @@ class TestTopicChanges(unittest.TestCase):
             ]
         }
         """
+
         before_data = json.loads(before_json)
         after_data = json.loads(after_json)
 
@@ -241,16 +242,12 @@ class TestTopicChanges(unittest.TestCase):
                 return obj.__dict__
 
         temp_file = "temp.json"
-
         with open(temp_file, 'w') as f:
             f.write(json.dumps(changes, default=dumper, indent=2))
 
         input_data = read_json_input(temp_file)
 
-        placements = read_json_input("placements.json")
-
         admin_options = {'bootstrap.servers': 'localhost:9092'}
-
         admin_client = AdminClient(admin_options)
 
         topic_changes = TopicChanges(input_data[Consts.TOPICS][Consts.ADDED],
@@ -259,8 +256,7 @@ class TestTopicChanges(unittest.TestCase):
                                      admin_client,
                                      bootstrap_server_url=admin_options[Consts.CFG_BOOTSTRAP],
                                      command_config=None,
-                                     placements=placements)
+                                     placements=None)
 
         ret = topic_changes.apply_to_scripts()
-
-        truc = 1
+        self.assertIsNotNone(ret)  # do better

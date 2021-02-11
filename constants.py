@@ -20,6 +20,9 @@ class Consts:
     A_TYPE = 'type'
     A_OPERATION = 'operation'
     A_ALLOW = 'allow'
+    A_SIGNATURE = 'signature'
+
+    A_TYPE_TOPIC = 'TOPIC'
 
     CFG_MAX_BYTES = 'max.message.bytes'
     CFG_RETENTION = 'retention.ms'
