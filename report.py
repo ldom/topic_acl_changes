@@ -33,8 +33,10 @@ titles_map = {
 
 
 def output_report(result_sets):
-    for result_set_number, result_set in result_sets.items():
-        print(f"{titles_map[result_set_number]}")
+    for result_set_name, result_set in result_sets.items():
+        title = titles_map.get(result_set_name) if titles_map.get(result_set_name) else result_set_name  
+        
+        print(f"{title}")
         for result in result_set:
             print(result)
         print("------------------------------------------------------------------")

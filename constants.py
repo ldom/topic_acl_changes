@@ -5,6 +5,10 @@ class Consts:
     TOPICS = "topics"
     ACLS = "acls"
 
+    CONFIG_CHANGED = "Topic(s) with changed"
+    CONFIG_REMOVED = "Topic(s) with removed"
+    CONFIG_ADDED = "Topic(s) with added"
+
     T_TOPIC = "topic"
     T_NAME = "name"
     T_PARTITIONS = "partitions"

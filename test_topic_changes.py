@@ -260,3 +260,116 @@ class TestTopicChanges(unittest.TestCase):
 
         ret = topic_changes.apply_to_scripts()
         self.assertIsNotNone(ret)  # do better
+
+    def test_topic_dynamic_config_changes(self):
+        before_json = """
+        {
+            "topics": [
+                {
+                    "topic": "Topic1",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "delete",
+                        "compression.type": "producer",
+                        "retention.ms": -1,
+                        "min.insync.replicas": 2
+                    }
+                },
+                {
+                    "topic": "Topic2",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "delete",
+                        "compression.type": "producer",
+                        "retention.ms": 2592000000
+                    }
+                },
+                {
+                    "topic": "Topic3",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "delete",
+                        "compression.type": "producer",
+                        "retention.ms": 2592000000,
+                        "segment.bytes": 1897687
+                    }
+                },
+                {
+                    "topic": "Topic4",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "delete",
+                        "compression.type": "producer",
+                        "retention.ms": 2592000000
+                    }
+                }
+            ],
+            "acls": [
+            ]
+        }
+        """
+
+        after_json = """
+        {
+            "topics": [
+                {
+                    "topic": "Topic1",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "compact",
+                        "compression.type": "producer",
+                        "retention.ms": -1,
+                        "max.message.bytes": 123456
+                    }
+                },
+                {
+                    "topic": "Topic2",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "delete",
+                        "compression.type": "producer",
+                        "file.delete.delay.ms": "123456"
+                    }
+                },
+                {
+                    "topic": "Topic3",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "delete",
+                        "compression.type": "producer",
+                        "retention.ms": 25920000,
+                        "index.interval.bytes": 9000
+                    }
+                },
+                {
+                    "topic": "Topic4",
+                    "partitions": 120,
+                    "placement": "async",
+                    "config": {
+                        "cleanup.policy": "delete",
+                        "retention.ms": 2592000000,
+                        "index.interval.bytes": 9000,
+                        "max.compaction.lag.ms": 45768
+                    }
+                }
+            ],
+            "acls": []
+        }
+        """
+
+        before_data = json.loads(before_json)
+        after_data = json.loads(after_json)
+
+        before_topics, before_acls = load_analysis_input(before_data)
+        after_topics, after_acls = load_analysis_input(after_data)
+
+        topics_sets = classify_topics(before_topics, after_topics)
+
+        self.assertIsNotNone(topics_sets)

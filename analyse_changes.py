@@ -27,8 +27,7 @@ def handle_arguments():
                              "Minimum = '{ \"bootstrap.servers\": \"<ip-or-dns-name>:9092\" }'")
 
     parser.add_argument("--command-config",
-                        help="Config properties for connecting to the cluster, in JSON format. "
-                             "Minimum = '{ \"bootstrap.servers\": \"<ip-or-dns-name>:9092\" }'",
+                        help="Command Config file passed to the CLI tools. ",
                         default=None)
 
     parser.add_argument("--placements",

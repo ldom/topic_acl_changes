@@ -4,6 +4,31 @@ from typing import Dict, Set, Tuple
 from constants import Consts, ResultSet
 
 
+def map_config_properties(properties_before, properties_after):
+    before_prop_names = set(properties_before.keys())
+    after_prop_names = set(properties_after.keys())
+
+    new_config_prop_names = after_prop_names - before_prop_names
+    new_config_props = {
+        name: properties_after[name]
+        for name in new_config_prop_names
+    }
+
+    deleted_config_prop_names = before_prop_names - after_prop_names
+    deleted_config_props = {
+        name: properties_before[name]
+        for name in deleted_config_prop_names
+    }
+
+    modified_config_props = {}
+    common_prop_names = before_prop_names & after_prop_names
+    for prop_name in common_prop_names:
+        if properties_after.get(prop_name) != properties_before.get(prop_name):
+            modified_config_props[prop_name] = properties_after.get(prop_name)  # new value
+
+    return new_config_props, modified_config_props, deleted_config_props
+
+
 def classify_topics(before, after) -> Dict[ResultSet, Set]:
     sets = {}
 
@@ -38,6 +63,28 @@ def classify_topics(before, after) -> Dict[ResultSet, Set]:
                 != topic_after.config_properties.get(Consts.CFG_RETENTION):
             sets[ResultSet.TOPICS_RETENTION_CHANGED].add(t)
             sets[ResultSet.TOPICS_UPDATED].add(t)
+
+        new_config_props, modified_config_props, deleted_config_props = \
+            map_config_properties(topic_before.config_properties, topic_after.config_properties)
+
+        # dynamically create and fill the sets for config changes
+        for config_name in new_config_props.keys():
+            title = f"{Consts.CONFIG_ADDED} {config_name}"
+            if not sets.get(title):
+                sets[title] = set()
+            sets[title].add(t)
+
+        for config_name in modified_config_props.keys():
+            title = f"{Consts.CONFIG_CHANGED} {config_name}"
+            if not sets.get(title):
+                sets[title] = set()
+            sets[title].add(t)
+
+        for config_name in deleted_config_props.keys():
+            title = f"{Consts.CONFIG_REMOVED} {config_name}"
+            if not sets.get(title):
+                sets[title] = set()
+            sets[title].add(t)
 
         if (topic_before.config_properties != topic_after.config_properties) \
                 or (topic_before.placement != topic_after.placement):
