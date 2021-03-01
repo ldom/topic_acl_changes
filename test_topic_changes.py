@@ -5,7 +5,7 @@ from confluent_kafka.admin import AdminClient
 
 from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
-from constants import Consts
+from constants import Consts, ResultSet
 from input import load_analysis_input
 from report import output_changes
 from topic_changes import TopicChanges
@@ -372,4 +372,27 @@ class TestTopicChanges(unittest.TestCase):
 
         topics_sets = classify_topics(before_topics, after_topics)
 
-        self.assertIsNotNone(topics_sets)
+        self.assertIn('Topic1', topics_sets[ResultSet.TOPICS_MAX_BYTES_CHANGED])
+        self.assertIn('Topic3', topics_sets[ResultSet.TOPICS_RETENTION_CHANGED])
+        self.assertIn('Topic2', topics_sets[ResultSet.TOPICS_RETENTION_CHANGED])
+
+        self.assertIn('Topic4', topics_sets[ResultSet.TOPICS_FINITE_RETENTION])
+        self.assertIn('Topic3', topics_sets[ResultSet.TOPICS_FINITE_RETENTION])
+        self.assertIn('Topic2', topics_sets[ResultSet.TOPICS_FINITE_RETENTION])
+
+        self.assertIn('Topic1', topics_sets[ResultSet.TOPICS_UPDATED])
+        self.assertIn('Topic3', topics_sets[ResultSet.TOPICS_UPDATED])
+        self.assertIn('Topic4', topics_sets[ResultSet.TOPICS_UPDATED])
+        self.assertIn('Topic2', topics_sets[ResultSet.TOPICS_UPDATED])
+
+        self.assertIn('Topic1', topics_sets['Topic(s) with added max.message.bytes'])
+        self.assertIn('Topic1', topics_sets['Topic(s) with changed cleanup.policy'])
+        self.assertIn('Topic1', topics_sets['Topic(s) with removed min.insync.replicas'])
+        self.assertIn('Topic3', topics_sets['Topic(s) with added index.interval.bytes'])
+        self.assertIn('Topic4', topics_sets['Topic(s) with added index.interval.bytes'])
+        self.assertIn('Topic3', topics_sets['Topic(s) with changed retention.ms'])
+        self.assertIn('Topic3', topics_sets['Topic(s) with removed segment.bytes'])
+        self.assertIn('Topic4', topics_sets['Topic(s) with added max.compaction.lag.ms'])
+        self.assertIn('Topic4', topics_sets['Topic(s) with removed compression.type'])
+        self.assertIn('Topic2', topics_sets['Topic(s) with added file.delete.delay.ms'])
+        self.assertIn('Topic2', topics_sets['Topic(s) with removed retention.ms'])
