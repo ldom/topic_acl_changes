@@ -32,8 +32,11 @@ def handle_arguments():
         description="Reads a JSON file with topics to re-create. Returns 0 for success, otherwise 1. "
     )
 
-    parser.add_argument("json-input",
-                        help="JSON input file to read.")
+    parser.add_argument("actions",
+                        help="JSON input file to specify what to do.")
+
+    parser.add_argument("cluster-config",
+                        help="JSON input file with cluster bootstrap-servers, etc.")
 
     # parser.add_argument("-c", "--config", help="Config properties for connecting to the cluster, in JSON format. "
     #                                            "Minimum = '{ \"bootstrap.servers\": \"<ip-or-dns-name>:9092\" }'", 
@@ -59,8 +62,12 @@ def main():
     ####################################################################################################
 
     # read JSON input data
-    input_data = read_json_input(args.json_input)
-    print(input_data)
+    actions = read_json_input(args.actions)
+    print(actions)
+
+    cluster_config = read_json_input(args.cluster_config)
+    print(cluster_config)
+    
     raise RuntimeError('delete this stuff')
 
     # read uid from topic
@@ -68,21 +75,21 @@ def main():
 
     # if not the first time, we check that we haven't applied this one yet
     if latest_applied_uid:
-        if int(input_data[JSON_INPUT_UID]) <= int(latest_applied_uid):
+        if int(actions[JSON_INPUT_UID]) <= int(latest_applied_uid):
             print("Already done!")
             return False  # we do nothing if it's been applied already
 
     # TODO test the env (how to get the current env?)
-    # required env received in --> input_data[JSON_INPUT_ENV]
+    # required env received in --> actions[JSON_INPUT_ENV]
 
     # apply the actions
     a = AdminClient(admin_options)
-    success, results = topics_recreate(a, input_data[JSON_INPUT_RECREATE_TOPICS])
+    success, results = topics_recreate(a, actions[JSON_INPUT_RECREATE_TOPICS])
 
     print(results)
 
     # write uid in topic
-    set_latest_applied(producer_options, UID_TOPIC_NAME, str(input_data['uid']))
+    set_latest_applied(producer_options, UID_TOPIC_NAME, str(actions['uid']))
 
     if success:
         return True
