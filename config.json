@@ -1,3 +1,11 @@
 {
-  "bootstrap.servers": "kafka1:12091"
+  "bootstrap.servers": "ldsp003a.rnd.pncint.net:9092",
+  "sasl.mechanisms": "GSSAPI",
+  "security.protocol": "SASL_SSL",
+  "group.id": "kafka_utilities_pipeline",
+  "sasl.kerberos.principal": "kafka/ldsp003a.rnd.pncint.net@RND.PNCINT.NET",
+  "ssl.ca.location": "/home/pnc-ca-bundle.pem",
+  "sasl.kerberos.kinit.cmd": "kinit -k -t '/home/dsp-rnd.keytab' 'kafka/ldsp003a.rnd.pncint.net@RND.PNCINT.NET'",
+  "sasl.kerberos.keytab": "/mounted_secret/dsp-rnd.keytab",
+  "sasl.kerberos.service.name": "kafka"
 }
