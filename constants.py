@@ -22,12 +22,14 @@ class Consts:
 
     A_NAME = 'name'
     A_PRINCIPAL = 'principal'
-    A_TYPE = 'type'
+    A_RESOURCE_TYPE = 'resource_type'
+    A_PATTERN_TYPE = 'pattern_type'
     A_OPERATION = 'operation'
     A_ALLOW = 'allow'
     A_SIGNATURE = 'signature'
+    A_PATTERN_TYPE_LITERAL = "LITERAL"
 
-    A_TYPE_TOPIC = 'TOPIC'
+    A_RESOURCE_TYPE_TOPIC = 'TOPIC'
 
     CFG_MAX_BYTES = 'max.message.bytes'
     CFG_RETENTION = 'retention.ms'
@@ -50,6 +52,7 @@ class ResultSet(Enum):
     TOPICS_MAX_BYTES_CHANGED = auto()
     TOPICS_RETENTION_CHANGED = auto()
     TOPICS_FINITE_RETENTION = auto()
+    TOPICS_INFINITE_RETENTION = auto()
     TOPICS_UPDATED = auto()
 
     ACLS_ADDED = auto()

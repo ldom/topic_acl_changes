@@ -6,7 +6,6 @@ from confluent_kafka.admin import AdminClient
 from acl import ACL
 from classify import classify_acls, classify_topics
 from cli_utils import read_json_input
-from constants import Consts
 from input import load_analysis_input
 from report import output_changes, output_report
 from topic import Topic

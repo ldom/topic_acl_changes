@@ -58,14 +58,14 @@ class TestLib(unittest.TestCase):
         {
             "name": "BIAN.Account",
             "principal": "xqdmgkfkusr001",
-            "type": "TOPIC",
+            "resource_type": "TOPIC",
             "operation": "READ",
             "allow": true
         },
         {
             "name": "BIAN.Account",
             "principal": "xqdspkfkusr002",
-            "type": "TOPIC",
+            "resource_type": "TOPIC",
             "operation": "READ",
             "allow": true
         }
@@ -129,44 +129,50 @@ class TestLib(unittest.TestCase):
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdmgkfkusr001",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdspkfkusr002",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdmgkfkusr001AA",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "WRITE",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account.1",
                     "principal": "xqdspkfkusr002BB",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account.2",
                     "principal": "xqdmgkfkusr001CC",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "WRITE",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdspkfkusr002DD",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 }
             ]
         }
@@ -221,58 +227,66 @@ class TestLib(unittest.TestCase):
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdmgkfkusr001",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true, 
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdspkfkusr002",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": false
+                    "allow": false,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdspkfkusr002BB",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdmgkfkusr001CC",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "WRITE",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account.1",
                     "principal": "xqdspkfkusr002DD",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account.1",
                     "principal": "xqdspkfkusr002BBXX",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "WRITE",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account.2",
                     "principal": "xqdmgkfkusr001CCYY",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "WRITE",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 },
                 {
                     "name": "BIAN.Account",
                     "principal": "xqdspkfkusr002DDZZ",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
-                    "allow": true
+                    "allow": true,
+                    "pattern_type": "LITERAL"
                 }
             ]
         }

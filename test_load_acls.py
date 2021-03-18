@@ -1,7 +1,7 @@
 import unittest
 
 from acl_external import ExternalACL
-from input import load_from_kafka_acl_output
+from acl import ACL
 
 
 class TestLoadACLs(unittest.TestCase):
@@ -1122,7 +1122,7 @@ Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=_confluent-m
         for res in parse_results:
             nb_acls += len(res[ExternalACL.C_ACLS])
 
-        acls = load_from_kafka_acl_output(pnc_output)
+        acls = ACL.load_from_kafka_acl_output(pnc_output)
         self.assertEqual(len(acls), nb_acls)
 
     def test_script_call(self):
@@ -1131,6 +1131,6 @@ Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=_confluent-m
         print(ret)
         self.assertEqual(len(ret), 2)
 
-        acls = load_from_kafka_acl_output(list_output)
+        acls = ACL.load_from_kafka_acl_output(list_output)
         print(acls)
         self.assertEqual(len(acls), 3)

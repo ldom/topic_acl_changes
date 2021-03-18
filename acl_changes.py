@@ -35,7 +35,7 @@ class ACLChanges():
             command_config_option = f"--command-config {self.command_config} " if self.command_config else ""
 
             allow_option = "--allow-principal" if acl[Consts.A_ALLOW] else "--deny-principal"
-            type_option = "--topic" if acl[Consts.A_TYPE] == Consts.A_TYPE_TOPIC else "--group"
+            type_option = "--topic" if acl[Consts.A_PATTERN_TYPE] == Consts.A_RESOURCE_TYPE_TOPIC else "--group"
 
             create_acl_cmd = f"kafka-acls --bootstrap-server {self.bootstrap_server_url} {command_config_option}" \
                              f"--add {type_option} {acl[Consts.A_NAME]} {allow_option} User:{acl[Consts.A_PRINCIPAL]} " \
@@ -52,7 +52,7 @@ class ACLChanges():
             command_config_option = f"--command-config {self.command_config} " if self.command_config else ""
 
             allow_option = "--allow-principal" if acl[Consts.A_ALLOW] else "--deny-principal"
-            type_option = "--topic" if acl[Consts.A_TYPE] == Consts.A_TYPE_TOPIC else "--group"
+            type_option = "--topic" if acl[Consts.A_PATTERN_TYPE] == Consts.A_RESOURCE_TYPE_TOPIC else "--group"
 
             delete_acl_cmd = f"kafka-acls --bootstrap-server {self.bootstrap_server_url} {command_config_option}" \
                              f"--force --remove {type_option} {acl[Consts.A_NAME]} " \

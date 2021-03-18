@@ -44,6 +44,7 @@ def classify_topics(before, after) -> Dict[ResultSet, Set]:
     sets[ResultSet.TOPICS_MAX_BYTES_CHANGED] = set()
     sets[ResultSet.TOPICS_RETENTION_CHANGED] = set()
     sets[ResultSet.TOPICS_FINITE_RETENTION] = set()
+    sets[ResultSet.TOPICS_INFINITE_RETENTION] = set()
     sets[ResultSet.TOPICS_UPDATED] = set()
 
     for t in remaining_topics:
@@ -93,7 +94,9 @@ def classify_topics(before, after) -> Dict[ResultSet, Set]:
     for t in after_topics:
         topic_after = after[t]
 
-        if topic_after.config_properties.get(Consts.CFG_RETENTION) != -1:
+        if topic_after.config_properties.get(Consts.CFG_RETENTION) == -1:
+            sets[ResultSet.TOPICS_INFINITE_RETENTION].add(t)
+        else:
             sets[ResultSet.TOPICS_FINITE_RETENTION].add(t)  # TODO add value
 
     return sets

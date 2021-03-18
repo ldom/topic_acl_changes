@@ -34,7 +34,7 @@ class TestACLChanges(unittest.TestCase):
                 {
                     "name": "test_acl",
                     "principal": "xqdmgkfkusr001",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
                     "allow": true
                 }
@@ -60,21 +60,21 @@ class TestACLChanges(unittest.TestCase):
                 {
                     "name": "test_acl",
                     "principal": "xqdmgkfkusr001",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "READ",
                     "allow": true
                 },
                 {
                     "name": "test_acl",
                     "principal": "xqdspkfkusr002",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "WRITE",
                     "allow": true
                 },
                 {
                     "name": "test_acl",
                     "principal": "xqdmgkfkusr001AA",
-                    "type": "TOPIC",
+                    "resource_type": "TOPIC",
                     "operation": "WRITE",
                     "allow": false
                 }

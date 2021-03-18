@@ -2,13 +2,15 @@ from constants import Consts
 
 
 class ACL:
-    def __init__(self, name, principal, operation, type, allow):
+    def __init__(self, name, principal, operation, resource_type, allow, pattern_type=Consts.A_PATTERN_TYPE_LITERAL):
         self.name = name
         self.principal = principal
         self.operation = operation
-        self.type = type
+        self.resource_type = resource_type
+        self.pattern_type = pattern_type
         self.allow = allow
-        self.signature = f"{self.name}/{self.principal}/{self.operation}/{self.type}/{self.allow}"
+        self.signature = f"{self.name}/{self.principal}/{self.operation}/{self.resource_type}/" \
+                         f"{self.allow}/{self.pattern_type}"
 
     @staticmethod
     def get_principal(full_principal):
@@ -36,7 +38,8 @@ class ACL:
                     principal=cls.get_principal(acl_details[ExternalACL.C_ACL_PRINCIPAL]),
                     operation=acl_details[ExternalACL.C_ACL_OPERATION],
                     # for this app, type is the type of resource, either TOPIC or GROUP
-                    type=resource[ExternalACL.C_RES_TYPE],
+                    resource_type=resource[ExternalACL.C_RES_TYPE],
+                    pattern_type=resource[ExternalACL.C_PATTERN_TYPE],
                     allow=cls.get_allow(acl_details),
                 )
                 acls[new_acl.signature] = new_acl
@@ -54,7 +57,8 @@ class ACL:
         return cls(
             name=json_object.get(Consts.A_NAME),
             principal=json_object.get(Consts.A_PRINCIPAL),
-            type=json_object.get(Consts.A_TYPE),
+            resource_type=json_object.get(Consts.A_RESOURCE_TYPE),
+            pattern_type=json_object.get(Consts.A_PATTERN_TYPE),
             operation=json_object.get(Consts.A_OPERATION),
             allow=json_object.get(Consts.A_ALLOW),
         )
