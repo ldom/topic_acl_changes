@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "replicas": [
+    {
+      "count": 2,
+      "constraints": {
+        "rack": "gf2"
+      }
+    }
+  ],
+  "observers": [
+    {
+      "count": 2,
+      "constraints": {
+        "rack": "gf1"
+      }
+    }
+  ]
+}

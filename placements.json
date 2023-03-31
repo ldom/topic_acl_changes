@@ -9,5 +9,9 @@
     "replicas": [{"count": 2, "constraints": {"rack": "gf2"}},
                  {"count": 2, "constraints": {"rack": "gf1"}}],
     "observers": []
+  },
+  "simple":
+  { "version": 1,
+    "replicas": [{"count": 1, "constraints": {"rack": "gf1"}}]
   }
 }

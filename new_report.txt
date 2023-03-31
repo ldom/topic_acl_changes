@@ -1,0 +1,785 @@
+Run Timestamp: 2/11/2021, 9:53:52 AM
+ 
+ 
+>>>>>>>>>>>>>>>>>>>> dsp_prod_test_compacted -- Test Compacted on BIAN.Account <<<<<<<<<<<<<<<<<<<<<
+ 
+ 
+Topics to be Recreated (0):
+===========================
+ 
+    --- none ---
+ 
+ 
+Topics Added (0):
+=================
+ 
+    --- none ---
+ 
+ 
+Topics Removed (0):
+===================
+ 
+    --- none ---
+ 
+ 
+New Repartition Topics Needing a DELETE ACL (0):
+================================================
+ 
+    --- none ---
+ 
+ 
+Topics with Partition Change (0):
+=================================
+ 
+    --- none ---
+ 
+ 
+Topics with cleanup.policy Configuration Change (66):
+=====================================================
+ 
+    dmg-alert-preferences-aggregator-aggregate-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dmg-alert-trigger-low-balance-alert-profiles-data-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dmg-alert-trigger-low-balance-balances-data-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-account-summary-balance-stream-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-alert-preferences-aggregator-aggregate-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-accountmodality-bian-accountmodality-aggregation-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-balance-produced-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-cor-account-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-mdm-cntrct-party-rltnp-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-disptrans-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-cor-nsf-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-simple-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-posted-transactions-accounts-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cos-availablebalance-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cos-pendingtransactions-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customermodality-custom-customermodality-aggregation-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-contact-method-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-contact-method-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-mdm-address-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-mdm-device-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-party-name-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-contact-method-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-mdm-address-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-mdm-device-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-party-name-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-address-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-contact-method-address-joiner-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-device-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-party-name-and-device-joiner-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-party-name-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-casa-account-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-cor-account-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-eds-account-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-balance-produced-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-mdm-device-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-internal-customer-from-ingested-mdm-device-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-mdmdevice-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-account-casa-open-account-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-account-mdm-cntrct-party-rltnp-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-accountbalance-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-fund-hold-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-monetarytransaction-accounts-collision-detection-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-monetarytxnrelationship-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-mdm-product-code-banking-product-aggregation-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-INGESTED.PrefLinkByPrefId.OLY-STATE-STORE-0000000037-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-channel-pref-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-event-pref-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-pref-link-channel-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-pref-link-event-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-pref-master-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-raw-channel-pref-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-raw-event-pref-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-simple-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-simple-customer-party-keys-history-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-pcs-pcs-account-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-pcs-pcs-chargeCard-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-transactionmodality-bian-transactionmodality-aggregation-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-monetarytxnexp-accounts-state-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-monetarytxnrelationship-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-statementcycle-bian-account-store-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000004-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000013-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-mappings-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-rs-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-location-data-management-dsp-BIAN.LocationDataManagement.BranchDirectory-STATE-STORE-0000000000-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-location-data-management-dsp-KTABLE-AGGREGATE-STATE-STORE-0000000004-changelog (<not set> => compact) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+ 
+ 
+Topics with compression.type Configuration Change (2):
+======================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (producer => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (producer => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with confluent.key.schema.validation Configuration Change (2):
+=====================================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with confluent.value.schema.validation Configuration Change (2):
+=======================================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with delete.retention.ms Configuration Change (2):
+=========================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (1 days => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (1 days => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with file.delete.delay.ms Configuration Change (2):
+==========================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (1 mins => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (1 mins => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with flush.messages Configuration Change (2):
+====================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (9223372036854775807 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (9223372036854775807 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with flush.ms Configuration Change (2):
+==============================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (+forever => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (+forever => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with follower.replication.throttled.replicas Configuration Change (2):
+=============================================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (<blank> => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (<blank> => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with index.interval.bytes Configuration Change (2):
+==========================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (4096 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (4096 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with leader.replication.throttled.replicas Configuration Change (2):
+===========================================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (<blank> => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (<blank> => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with max.compaction.lag.ms Configuration Change (2):
+===========================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (+forever => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (+forever => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with max.message.bytes Configuration Change (2):
+=======================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (1000012 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (1000012 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with message.downconversion.enable Configuration Change (2):
+===================================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (true => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (true => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with message.format.version Configuration Change (2):
+============================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (2.4-IV1 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (2.4-IV1 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with message.timestamp.difference.max.ms Configuration Change (2):
+=========================================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (+forever => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (+forever => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with message.timestamp.type Configuration Change (2):
+============================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (CreateTime => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (CreateTime => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with min.cleanable.dirty.ratio Configuration Change (2):
+===============================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (0.5 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (0.5 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with min.compaction.lag.ms Configuration Change (2):
+===========================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (0 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (0 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with min.insync.replicas Configuration Change (2):
+=========================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (1 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (1 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with preallocate Configuration Change (2):
+=================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with retention.bytes Configuration Change (2):
+=====================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (-1 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (-1 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with retention.ms Configuration Change (107):
+====================================================
+ 
+    dmg-alert-preferences-aggregator-aggregate-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dmg-alert-preferences-aggregator-aggregate-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dmg-alert-trigger-low-balance-alert-profiles-data-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dmg-alert-trigger-low-balance-balances-data-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-account-summary-balance-stream-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-alert-preferences-aggregator-aggregate-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-alert-preferences-aggregator-aggregate-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-accountmodality-bian-accountmodality-aggregation-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-balance-produced-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-cor-account-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-cor-account-state-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-mdm-cntrct-party-rltnp-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-account-mdm-cntrct-party-rltnp-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-disptrans-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-disptrans-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-cor-nsf-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-cor-nsf-state-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-simple-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-simple-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-posted-transactions-accounts-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cor-posted-transactions-accounts-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cos-availablebalance-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cos-availablebalance-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cos-pendingtransactions-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-cos-pendingtransactions-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customermodality-custom-customermodality-aggregation-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-contact-method-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-contact-method-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-mdm-address-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-mdm-device-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-party-name-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-contact-method-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-mdm-address-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-mdm-device-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-party-name-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-address-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-contact-method-address-joiner-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-device-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-party-name-and-device-joiner-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-party-name-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-casa-account-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-casa-account-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-cor-account-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-cor-account-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-eds-account-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-account-from-eds-account-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-account-balance-produced-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (28 days => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-mdm-device-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (28 days => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-internal-customer-from-ingested-mdm-device-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-mdmdevice-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-account-casa-open-account-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-account-casa-open-account-state-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-account-mdm-cntrct-party-rltnp-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-account-mdm-cntrct-party-rltnp-state-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-accountbalance-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-accountbalance-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-fund-hold-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-fund-hold-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-monetarytransaction-accounts-collision-detection-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-monetarytransaction-accounts-collision-detection-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-monetarytxnrelationship-KSTREAM-PEEK-0000000012-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-monetarytxnrelationship-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-fis-monetarytxnrelationship-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-mdm-product-code-banking-product-aggregation-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-INGESTED.PrefLinkByPrefId.OLY-STATE-STORE-0000000037-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-KSTREAM-KEY-SELECT-0000000055-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-KSTREAM-KEY-SELECT-0000000066-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-KSTREAM-TRANSFORM-0000000030-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-KSTREAM-TRANSFORM-0000000061-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-channel-pref-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-event-pref-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-pref-link-channel-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-pref-link-event-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-pref-master-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-raw-channel-pref-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-raw-channel-pref-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-raw-event-pref-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-raw-event-pref-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-simple-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-simple-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-simple-customer-party-keys-history-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-oly-simple-customer-party-keys-history-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+   dsp-streams-bian-mapper-pcs-pcs-account-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-pcs-pcs-account-state-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-pcs-pcs-chargeCard-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-bian-mapper-transactionmodality-bian-transactionmodality-aggregation-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-monetarytxnexp-accounts-state-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-monetarytxnexp-accounts-state-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-monetarytxnrelationship-KSTREAM-PEEK-0000000012-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-monetarytxnrelationship-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-monetarytxnrelationship-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-statementcycle-KSTREAM-PEEK-0000000011-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-statementcycle-bian-account-store-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    dsp-streams-custom-mapper-fis-statementcycle-bian-account-store-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000004-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000004-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000013-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000013-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-mappings-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-mappings-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-rs-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-rs-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-location-data-management-dsp-BIAN.LocationDataManagement.BranchDirectory-STATE-STORE-0000000000-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-location-data-management-dsp-KTABLE-AGGREGATE-STATE-STORE-0000000004-changelog (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+    sfp-location-data-management-dsp-KTABLE-AGGREGATE-STATE-STORE-0000000004-repartition (-forever => 7 days) -- *** TOPIC CONFIG ALTER WILL BE GENERATED ***
+ 
+ 
+Topics with segment.index.bytes Configuration Change (2):
+=========================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (10485760  => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (10485760  => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with segment.jitter.ms Configuration Change (2):
+=======================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (0 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (0 => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with segment.ms Configuration Change (2):
+================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (7 days => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (7 days => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with unclean.leader.election.enable Configuration Change (2):
+====================================================================
+ 
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (false => <not set>) -- *** TOPIC CONFIG DELETE WILL BE GENERATED ***
+ 
+ 
+Topics with Finite Retention After (178):
+=========================================
+ 
+    BIAN.PositionKeeping.Balance (7 days)
+    INGESTED.AccountBalanceChange.FIS (7 days)
+   INGESTED.AccountNotes.FIS (7 days)
+    INGESTED.AccountRoles.FIS (7 days)
+    INGESTED.CasaOpenAccount.FIS (7 days)
+    INGESTED.ChannelPrefByPrefId.OLY (7 days)
+    INGESTED.DispositionTransaction.COR (7 days)
+    INGESTED.EDSAccount.MDM (7 days)
+    INGESTED.EDSParty.MDM (7 days)
+    INGESTED.EventPrefByPrefId.OLY (7 days)
+    INGESTED.FundHold.FIS (7 days)
+    INGESTED.JournalArea.COS (7 days)
+    INGESTED.MDMAddress.MDM (7 days)
+    INGESTED.MDMCntrctPartyAddress.MDM (7 days)
+    INGESTED.MDMCntrctPartyRltnp.MDM (7 days)
+    INGESTED.MDMCntrctPrdctRltnp.MDM (7 days)
+    INGESTED.MDMContactMethod.MDM (7 days)
+    INGESTED.MDMContract.MDM (7 days)
+    INGESTED.MDMDevice.MDM (7 days)
+    INGESTED.MDMParty.MDM (7 days)
+    INGESTED.MDMPartyKeys.MDM (7 days)
+    INGESTED.MDMPartyName.MDM (7 days)
+    INGESTED.Master.PCS (7 days)
+    INGESTED.MasterRecord.COR (7 days)
+    INGESTED.MasterRecord.COS (7 days)
+    INGESTED.MonetaryTransaction.FIS (7 days)
+    INGESTED.MonetaryTransactionException.FIS (7 days)
+    INGESTED.MonetaryTxnRelationship.FIS (7 days)
+    INGESTED.PendingDebits.COS (7 days)
+    INGESTED.PendingDeposits.COS (7 days)
+    INGESTED.PostedTransaction.COR (7 days)
+    INGESTED.PrefLinkByChannelPrefId.OLY (7 days)
+    INGESTED.PrefLinkByEventPrefId.OLY (7 days)
+    INGESTED.PrefLinkByPrefId.OLY (7 days)
+    INTERNAL.Error.DSP (4 days)
+    INTERNAL.Stage.AccountBalanceEntity (4 days)
+    RAW.CIF.LOAD.CIFALK (7 days)
+    RAW.CIF.LOAD.CIFPERM (7 days)
+    RAW.CIFKeys.CIF (7 days)
+    RAW.COR.LOAD.DISPTRANS (7 days)
+    RAW.COR.LOAD.MASTER (7 days)
+    RAW.COR.LOAD.POSTTRANS (7 days)
+    RAW.COR.REALTIME.DISPTRANS (7 days)
+    RAW.COR.REALTIME.MASTER (7 days)
+    RAW.COR.REALTIME.POSTTRANS (7 days)
+    RAW.COX.LOAD.CONTROLFILE (7 days)
+    RAW.Intraday.COS (7 days)
+    RAW.JournalRecord.COS (7 days)
+    RAW.MDM.LOAD.MDMADDR (7 days)
+    RAW.MDM.LOAD.MDMCNTCTMETHOD (7 days)
+    RAW.MDM.LOAD.MDMCNTRCTPARTYRLTNP (7 days)
+    RAW.MDM.LOAD.MDMCNTRCTPRDCTRLTNP (7 days)
+    RAW.MDM.LOAD.MDMCNTRCTPRTYADDRESS (7 days)
+    RAW.MDM.LOAD.MDMCONTRACT (7 days)
+    RAW.MDM.LOAD.MDMPARTY (7 days)
+    RAW.MDM.LOAD.MDMPARTYKEYS (7 days)
+    RAW.MDM.LOAD.MDMPARTYNAME (7 days)
+    RAW.MDM.REALTIME.DATA (7 days)
+    RAW.MPX.LOAD.STATEMENTCYCLE (7 days)
+    RAW.MPX.LOAD.TRANCODE (7 days)
+    RAW.MasterRecord.COS (7 days)
+    RAW.OLY.LOAD.CHANNELPREF (7 days)
+    RAW.OLY.LOAD.EVENTPREF (7 days)
+    RAW.OLY.LOAD.PREFLINK (7 days)
+    RAW.OLY.LOAD.PREFMASTER (7 days)
+    RAW.PCS.LOAD.CARD (7 days)
+    RAW.PCS.LOAD.PCSMSTR (7 days)
+    RAW_OLY_CHANNEL_PREF (7 days)
+    RAW_OLY_EVENT_PREF (7 days)
+    RAW_OLY_PREF_LINK (7 days)
+    RAW_OLY_PREF_MASTER (7 days)
+    dmg-alert-preferences-aggregator-aggregate-account-store-changelog (7 days)
+    dmg-alert-preferences-aggregator-aggregate-account-store-repartition (7 days)
+    dmg-alert-trigger-low-balance-alert-profiles-data-state-store-changelog (7 days)
+    dmg-alert-trigger-low-balance-balances-data-state-store-changelog (7 days)
+    dsp-account-summary-balance-stream-state-store-changelog (7 days)
+    dsp-alert-preferences-aggregator-aggregate-account-store-changelog (7 days)
+    dsp-alert-preferences-aggregator-aggregate-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-accountmodality-bian-accountmodality-aggregation-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-account-balance-produced-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-account-cor-account-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-account-cor-account-state-store-repartition (7 days)
+    dsp-streams-bian-mapper-cor-account-mdm-cntrct-party-rltnp-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-account-mdm-cntrct-party-rltnp-store-repartition (7 days)
+    dsp-streams-bian-mapper-cor-disptrans-bian-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-disptrans-bian-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-cor-nsf-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-cor-nsf-state-store-repartition (7 days)
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-simple-bian-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-nonsufficientfunds-simple-bian-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-cor-posted-transactions-accounts-store-changelog (7 days)
+    dsp-streams-bian-mapper-cor-posted-transactions-accounts-store-repartition (7 days)
+    dsp-streams-bian-mapper-cos-availablebalance-bian-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-cos-availablebalance-bian-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-cos-pendingtransactions-bian-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-cos-pendingtransactions-bian-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-customermodality-custom-customermodality-aggregation-store-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-contact-method-store-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-contact-method-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-mdm-address-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-mdm-device-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-customer-from-party-name-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-contact-method-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-mdm-address-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-mdm-device-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-internal-customer-from-party-name-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-address-store-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-contact-method-address-joiner-store-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-device-store-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-party-name-and-device-joiner-store-changelog (7 days)
+    dsp-streams-bian-mapper-customerreferencedatamanagement-customer-mdm-party-name-store-changelog (7 days)
+    dsp-streams-bian-mapper-eds-account-account-from-casa-account-changelog (7 days)
+    dsp-streams-bian-mapper-eds-account-account-from-casa-account-repartition (7 days)
+    dsp-streams-bian-mapper-eds-account-account-from-cor-account-changelog (7 days)
+    dsp-streams-bian-mapper-eds-account-account-from-cor-account-repartition (7 days)
+    dsp-streams-bian-mapper-eds-account-account-from-eds-account-changelog (7 days)
+    dsp-streams-bian-mapper-eds-account-account-from-eds-account-repartition (7 days)
+    dsp-streams-bian-mapper-eds-account-balance-produced-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-eds-customer-changelog (7 days)
+    dsp-streams-bian-mapper-eds-mdm-customer-customer-from-ingested-mdm-device-changelog (7 days)
+    dsp-streams-bian-mapper-eds-mdm-customer-eds-customer-store-changelog (7 days)
+    dsp-streams-bian-mapper-eds-mdm-customer-internal-customer-from-ingested-mdm-device-changelog (7 days)
+    dsp-streams-bian-mapper-eds-mdm-customer-mdmdevice-store-changelog (7 days)
+    dsp-streams-bian-mapper-fis-account-casa-open-account-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-fis-account-casa-open-account-state-store-repartition (7 days)
+    dsp-streams-bian-mapper-fis-account-mdm-cntrct-party-rltnp-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-fis-account-mdm-cntrct-party-rltnp-state-store-repartition (7 days)
+    dsp-streams-bian-mapper-fis-accountbalance-bian-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-fis-accountbalance-bian-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-fis-fund-hold-bian-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-fis-fund-hold-bian-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-fis-monetarytransaction-accounts-collision-detection-store-changelog (7 days)
+    dsp-streams-bian-mapper-fis-monetarytransaction-accounts-collision-detection-store-repartition (7 days)
+    dsp-streams-bian-mapper-fis-monetarytxnrelationship-KSTREAM-PEEK-0000000012-repartition (7 days)
+    dsp-streams-bian-mapper-fis-monetarytxnrelationship-bian-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-fis-monetarytxnrelationship-bian-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-mdm-product-code-banking-product-aggregation-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-INGESTED.PrefLinkByPrefId.OLY-STATE-STORE-0000000037-changelog (7 days)
+    dsp-streams-bian-mapper-oly-KSTREAM-KEY-SELECT-0000000055-repartition (7 days)
+    dsp-streams-bian-mapper-oly-KSTREAM-KEY-SELECT-0000000066-repartition (7 days)
+    dsp-streams-bian-mapper-oly-KSTREAM-TRANSFORM-0000000030-repartition (7 days)
+    dsp-streams-bian-mapper-oly-KSTREAM-TRANSFORM-0000000061-repartition (7 days)
+    dsp-streams-bian-mapper-oly-channel-pref-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-event-pref-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-pref-link-channel-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-pref-link-event-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-pref-master-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-raw-channel-pref-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-raw-channel-pref-store-repartition (7 days)
+    dsp-streams-bian-mapper-oly-raw-event-pref-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-raw-event-pref-store-repartition (7 days)
+    dsp-streams-bian-mapper-oly-simple-account-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-simple-account-store-repartition (7 days)
+    dsp-streams-bian-mapper-oly-simple-customer-party-keys-history-store-changelog (7 days)
+    dsp-streams-bian-mapper-oly-simple-customer-party-keys-history-store-repartition (7 days)
+    dsp-streams-bian-mapper-pcs-pcs-account-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-pcs-pcs-account-state-store-repartition (7 days)
+    dsp-streams-bian-mapper-pcs-pcs-chargeCard-state-store-changelog (7 days)
+    dsp-streams-bian-mapper-transactionmodality-bian-transactionmodality-aggregation-store-changelog (7 days)
+    dsp-streams-custom-mapper-fis-monetarytxnexp-accounts-state-store-changelog (7 days)
+    dsp-streams-custom-mapper-fis-monetarytxnexp-accounts-state-store-repartition (7 days)
+    dsp-streams-custom-mapper-fis-monetarytxnrelationship-KSTREAM-PEEK-0000000012-repartition (7 days)
+    dsp-streams-custom-mapper-fis-monetarytxnrelationship-bian-account-store-changelog (7 days)
+    dsp-streams-custom-mapper-fis-monetarytxnrelationship-bian-account-store-repartition (7 days)
+    dsp-streams-custom-mapper-fis-statementcycle-KSTREAM-PEEK-0000000011-repartition (7 days)
+    dsp-streams-custom-mapper-fis-statementcycle-bian-account-store-changelog (7 days)
+    dsp-streams-custom-mapper-fis-statementcycle-bian-account-store-repartition (7 days)
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000004-changelog (7 days)
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000004-repartition (7 days)
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000013-changelog (7 days)
+    sfp-key-translation-service-dsp-KSTREAM-REDUCE-STATE-STORE-0000000013-repartition (7 days)
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-mappings-changelog (7 days)
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-mappings-repartition (7 days)
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-rs-changelog (7 days)
+    sfp-key-translation-service-dsp-sfp-key-translation-service-dsp-state-rs-repartition (7 days)
+    sfp-location-data-management-dsp-BIAN.LocationDataManagement.BranchDirectory-STATE-STORE-0000000000-changelog (7 days)
+    sfp-location-data-management-dsp-KTABLE-AGGREGATE-STATE-STORE-0000000004-changelog (7 days)
+    sfp-location-data-management-dsp-KTABLE-AGGREGATE-STATE-STORE-0000000004-repartition (7 days)
+ 
+ 
+ACLs Added (0):
+===============
+ 
+    --- none ---
+ 
+ 
+ACLs Removed (0):
+=================
+ 
+    --- none ---
+ 
+ 
+ACLs Added to Existing Topics (0):
+==================================
+ 
+    --- none ---
+ 
+ 
+ACLs Removed from Existing Topics (0):
+======================================
+ 
+    --- none ---
+ 
+ 
+ACLs Added to Added Topics (0):
+===============================
+ 
+    --- none ---
+ 
+ 
+ACLs Before Missing a Specific Topic (1):
+=========================================
+ 
+    RAW -- dsp-connect01 -- PREFIXED -- WRITE
+ 
+ 
+ACLs After Missing a Specific Topic (1):
+========================================
+ 
+    RAW -- dsp-connect01 -- PREFIXED -- WRITE
+ 
+ 
+Topics No Access Before (1):
+============================
+ 
+    BIAN.CustomerReferenceDataManagement.EDS
+ 
+ 
+Topics No Access After (1):
+===========================
+ 
+    BIAN.CustomerReferenceDataManagement.EDS
+ 
+ 
+Topics Read-Only Before (0):
+============================
+ 
+    --- none ---
+ 
+ 
+Topics Read-Only After (0):
+===========================
+ 
+    --- none ---
+ 
+ 
+Topics Write-Only Before (15):
+==============================
+ 
+    BIAN.ChargeCard
+    BIAN.CustomerAccessEntitlement.CustomerAccessProfile
+    BIAN.DocumentServices.DocumentManagement
+    BIAN.RewardPointsAccount.Notification
+    BIAN.RewardPointsAwardsAndRedemption.Notification
+    CUSTOM.Account.AOPAccount
+    CUSTOM.CustomerReferenceDataManagement.AOPParty
+    CUSTOM.Model.AlertConfiguration
+    CUSTOM.PaymentException
+    INGESTED.AccountNotes.FIS
+    INGESTED.AccountRoles.FIS
+    INGESTED.MDMCntrctPartyAddress.MDM
+    INGESTED.MDMContract.MDM
+    INTERNAL.Error.Connect
+    INTERNAL.Error.DSP
+ 
+ 
+Topics Write-Only After (15):
+=============================
+ 
+    BIAN.ChargeCard
+    BIAN.CustomerAccessEntitlement.CustomerAccessProfile
+    BIAN.DocumentServices.DocumentManagement
+    BIAN.RewardPointsAccount.Notification
+    BIAN.RewardPointsAwardsAndRedemption.Notification
+    CUSTOM.Account.AOPAccount
+    CUSTOM.CustomerReferenceDataManagement.AOPParty
+    CUSTOM.Model.AlertConfiguration
+    CUSTOM.PaymentException
+    INGESTED.AccountNotes.FIS
+    INGESTED.AccountRoles.FIS
+    INGESTED.MDMCntrctPartyAddress.MDM
+    INGESTED.MDMContract.MDM
+    INTERNAL.Error.Connect
+    INTERNAL.Error.DSP
+ 
+ 
+Principals Added (0):
+=====================
+ 
+    --- none ---
+ 
+ 
+Principals Removed (2):
+=======================
+ 
+    DMG-prod-kfkusr001 -- DMG
+    xqDMGkfkusr1 -- DMG
+ 
+ 
+Principals After Using Old Style CN (1):
+========================================
+ 
+    CMT-prod-kfkusr001 -- CMT
+ 
+ 
+Principals After Using Old Style UPN (1):
+=========================================
+ 
+    xqCMTkfkusr1 -- CMT
+ 
+ 
+Principals After (70):
+======================
+ 
+    CMT-prod-kfkusr001 -- CMT
+    dsp-connect01 -- NO MNEMONIC
+    xqCMTkfkusr1 -- CMT
+    xqaopkfkusr001 -- AOP
+    xqccpkfkusr001 -- CCP
+   xqdmgkfkusr001 -- DMG
+    xqdspkfkusr001 -- DSP
+    xqdspkfkusr002 -- DSP
+    xqdspkfkusr003 -- DSP
+    xqdspkfkusr004 -- DSP
+    xqdspkfkusr005 -- DSP
+    xqdspkfkusr006 -- DSP
+    xqdspkfkusr007 -- DSP
+    xqdspkfkusr008 -- DSP
+    xqdspkfkusr009 -- DSP
+    xqdspkfkusr010 -- DSP
+    xqdspkfkusr011 -- DSP
+    xqdspkfkusr012 -- DSP
+    xqdspkfkusr013 -- DSP
+    xqdspkfkusr014 -- DSP
+    xqdspkfkusr015 -- DSP
+    xqdspkfkusr016 -- DSP
+    xqdspkfkusr017 -- DSP
+    xqdspkfkusr018 -- DSP
+    xqdspkfkusr019 -- DSP
+    xqdspkfkusr020 -- DSP
+    xqdspkfkusr021 -- DSP
+    xqdspkfkusr022 -- DSP
+    xqdspkfkusr023 -- DSP
+    xqdspkfkusr024 -- DSP
+    xqdspkfkusr025 -- DSP
+    xqdspkfkusr026 -- DSP
+    xqdspkfkusr027 -- DSP
+    xqdspkfkusr028 -- DSP
+    xqdspkfkusr029 -- DSP
+    xqdspkfkusr030 -- DSP
+    xqdspkfkusr031 -- DSP
+    xqdspkfkusr032 -- DSP
+    xqdspkfkusr033 -- DSP
+    xqdspkfkusr034 -- DSP
+    xqdspkfkusr035 -- DSP
+    xqdspkfkusr036 -- DSP
+    xqdspkfkusr037 -- DSP
+    xqdspkfkusr038 -- DSP
+    xqdspkfkusr039 -- DSP
+    xqdspkfkusr040 -- DSP
+    xqdspkfkusr041 -- DSP
+    xqdspkfkusr042 -- DSP
+    xqdspkfkusr043 -- DSP
+    xqdspkfkusr044 -- DSP
+    xqdspkfkusr045 -- DSP
+    xqdspkfkusr046 -- DSP
+    xqdspkfkusr047 -- DSP
+    xqdspkfkusr048 -- DSP
+    xqdspkfkusr049 -- DSP
+    xqdspkfkusr050 -- DSP
+    xqdspkfkusr051 -- DSP
+    xqdspkfkusr052 -- DSP
+    xqdspkfkusr053 -- DSP
+    xqdspkfkusr054 -- DSP
+    xqdspkfkusr055 -- DSP
+    xqdspkfkusr056 -- DSP
+    xqdspkfkusr057 -- DSP
+    xqedckfkusr001 -- EDC
+    xqlcxkfkusr001 -- LCX
+    xqolykfkusr001 -- OLY
+    xqppokfkusr001 -- PPO
+    xqrewkfkusr001 -- REW
+    xqsfpkfkusr001 -- SFP
+    xqwcikfkusr002 -- WCI
+ 
+
+The contents of this email are the property of PNC. If it was not addressed to you, you have no legal right to read it. If you think you received it in error, please notify the sender. Do not forward or copy without permission of the sender. This message may be considered a commercial electronic message under Canadian law or this message may contain an advertisement of a product or service and thus may constitute a commercial electronic mail message under US law. You may unsubscribe at any time from receiving commercial electronic messages from PNC at http://pages.e.pnc.com/globalunsub/
+PNC, 249 Fifth Avenue, Pittsburgh, PA 15222; pnc.com

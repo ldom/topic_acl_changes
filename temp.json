@@ -51,102 +51,114 @@
   "acls": {
     "added": [
       {
-        "name": "BIAN.Account",
-        "principal": "xqdspkfkusr002",
-        "operation": "READ",
-        "type": "TOPIC",
-        "allow": false,
-        "signature": "BIAN.Account/xqdspkfkusr002/READ/TOPIC/False"
-      },
-      {
-        "name": "BIAN.Account.1",
-        "principal": "xqdspkfkusr002DD",
-        "operation": "READ",
-        "type": "TOPIC",
-        "allow": true,
-        "signature": "BIAN.Account.1/xqdspkfkusr002DD/READ/TOPIC/True"
-      },
-      {
-        "name": "BIAN.Account",
-        "principal": "xqdspkfkusr002DDZZ",
-        "operation": "READ",
-        "type": "TOPIC",
-        "allow": true,
-        "signature": "BIAN.Account/xqdspkfkusr002DDZZ/READ/TOPIC/True"
-      },
-      {
         "name": "BIAN.Account.2",
         "principal": "xqdmgkfkusr001CCYY",
         "operation": "WRITE",
-        "type": "TOPIC",
+        "resource_type": null,
+        "pattern_type": null,
         "allow": true,
-        "signature": "BIAN.Account.2/xqdmgkfkusr001CCYY/WRITE/TOPIC/True"
+        "signature": "BIAN.Account.2/xqdmgkfkusr001CCYY/WRITE/None/True/None"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002BB",
+        "operation": "READ",
+        "resource_type": null,
+        "pattern_type": null,
+        "allow": true,
+        "signature": "BIAN.Account/xqdspkfkusr002BB/READ/None/True/None"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002",
+        "operation": "READ",
+        "resource_type": null,
+        "pattern_type": null,
+        "allow": false,
+        "signature": "BIAN.Account/xqdspkfkusr002/READ/None/False/None"
       },
       {
         "name": "BIAN.Account.1",
         "principal": "xqdspkfkusr002BBXX",
         "operation": "WRITE",
-        "type": "TOPIC",
+        "resource_type": null,
+        "pattern_type": null,
         "allow": true,
-        "signature": "BIAN.Account.1/xqdspkfkusr002BBXX/WRITE/TOPIC/True"
+        "signature": "BIAN.Account.1/xqdspkfkusr002BBXX/WRITE/None/True/None"
       },
       {
         "name": "BIAN.Account",
         "principal": "xqdmgkfkusr001CC",
         "operation": "WRITE",
-        "type": "TOPIC",
+        "resource_type": null,
+        "pattern_type": null,
         "allow": true,
-        "signature": "BIAN.Account/xqdmgkfkusr001CC/WRITE/TOPIC/True"
+        "signature": "BIAN.Account/xqdmgkfkusr001CC/WRITE/None/True/None"
+      },
+      {
+        "name": "BIAN.Account.1",
+        "principal": "xqdspkfkusr002DD",
+        "operation": "READ",
+        "resource_type": null,
+        "pattern_type": null,
+        "allow": true,
+        "signature": "BIAN.Account.1/xqdspkfkusr002DD/READ/None/True/None"
       },
       {
         "name": "BIAN.Account",
-        "principal": "xqdspkfkusr002BB",
+        "principal": "xqdspkfkusr002DDZZ",
         "operation": "READ",
-        "type": "TOPIC",
+        "resource_type": null,
+        "pattern_type": null,
         "allow": true,
-        "signature": "BIAN.Account/xqdspkfkusr002BB/READ/TOPIC/True"
+        "signature": "BIAN.Account/xqdspkfkusr002DDZZ/READ/None/True/None"
       }
     ],
     "removed": [
       {
         "name": "BIAN.Account",
-        "principal": "xqdmgkfkusr001AA",
-        "operation": "WRITE",
-        "type": "TOPIC",
-        "allow": true,
-        "signature": "BIAN.Account/xqdmgkfkusr001AA/WRITE/TOPIC/True"
-      },
-      {
-        "name": "BIAN.Account",
-        "principal": "xqdspkfkusr002",
-        "operation": "READ",
-        "type": "TOPIC",
-        "allow": true,
-        "signature": "BIAN.Account/xqdspkfkusr002/READ/TOPIC/True"
-      },
-      {
-        "name": "BIAN.Account",
         "principal": "xqdspkfkusr002DD",
         "operation": "READ",
-        "type": "TOPIC",
+        "resource_type": null,
+        "pattern_type": null,
         "allow": true,
-        "signature": "BIAN.Account/xqdspkfkusr002DD/READ/TOPIC/True"
+        "signature": "BIAN.Account/xqdspkfkusr002DD/READ/None/True/None"
       },
       {
         "name": "BIAN.Account.1",
         "principal": "xqdspkfkusr002BB",
         "operation": "READ",
-        "type": "TOPIC",
+        "resource_type": null,
+        "pattern_type": null,
         "allow": true,
-        "signature": "BIAN.Account.1/xqdspkfkusr002BB/READ/TOPIC/True"
+        "signature": "BIAN.Account.1/xqdspkfkusr002BB/READ/None/True/None"
       },
       {
         "name": "BIAN.Account.2",
         "principal": "xqdmgkfkusr001CC",
         "operation": "WRITE",
-        "type": "TOPIC",
+        "resource_type": null,
+        "pattern_type": null,
         "allow": true,
-        "signature": "BIAN.Account.2/xqdmgkfkusr001CC/WRITE/TOPIC/True"
+        "signature": "BIAN.Account.2/xqdmgkfkusr001CC/WRITE/None/True/None"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdmgkfkusr001AA",
+        "operation": "WRITE",
+        "resource_type": null,
+        "pattern_type": null,
+        "allow": true,
+        "signature": "BIAN.Account/xqdmgkfkusr001AA/WRITE/None/True/None"
+      },
+      {
+        "name": "BIAN.Account",
+        "principal": "xqdspkfkusr002",
+        "operation": "READ",
+        "resource_type": null,
+        "pattern_type": null,
+        "allow": true,
+        "signature": "BIAN.Account/xqdspkfkusr002/READ/None/True/None"
       }
     ]
   }
